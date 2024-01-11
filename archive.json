@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-09T00:40:43.311242+00:00",
+  "timestamp": "2024-01-11T00:40:49.146380+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -139,7 +139,7 @@
     {
       "number": 5,
       "id": "I_kwDOKiDYo850n_Dx",
-      "title": "Example of YANG code for the grouping ",
+      "title": "Guidelines for component specific attributes",
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/5",
       "state": "OPEN",
       "author": "italobusi",
@@ -148,9 +148,17 @@
       "labels": [],
       "body": "Add an example of YANG code for the grouping (Component-Specific Info Design section)",
       "createdAt": "2023-10-23T08:34:32Z",
-      "updatedAt": "2023-10-23T08:34:32Z",
+      "updatedAt": "2024-01-09T19:17:38Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2023-12-20 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2023-12-20.md)**\r\n\r\nThere was not time to discuss whether to use the choice or when statements to define component specific attributes: to be discussed in the next call\r\n\r\nIt has been pointed out that Netmod WG has recently had a similar discussion about choice versus when statement: it may be worthwhile reviewing the Netmod WG discussion before the next call\r\n",
+          "createdAt": "2024-01-09T19:17:37Z",
+          "updatedAt": "2024-01-09T19:17:37Z"
+        }
+      ]
     },
     {
       "number": 6,
@@ -198,7 +206,7 @@
       ],
       "body": "Need to further discuss whether the base network inventory YANG model should support write operations (RW) or not (RO)\r\n\r\nSee:\r\n\r\n- https://mailarchive.ietf.org/arch/msg/inventory-yang/Z6reCPdR3UGbHFl152AhB1_QIvw/\r\n- https://github.com/ietf-ccamp-wg/network-inventory-yang/issues/28\r\n- https://github.com/ietf-ccamp-wg/network-inventory-yang/issues/22\r\n- https://github.com/ietf-ccamp-wg/network-inventory-yang/issues/14\r\n",
       "createdAt": "2023-10-23T10:40:39Z",
-      "updatedAt": "2023-12-05T13:18:03Z",
+      "updatedAt": "2024-01-09T19:18:03Z",
       "closedAt": null,
       "comments": [
         {
@@ -207,6 +215,13 @@
           "body": "Please note that changing from RO->RW can be BC while changing RW->RO is NBC\r\n\r\nSee [section 11 of RFC7950](https://datatracker.ietf.org/doc/html/rfc7950#section-11):\r\n\r\n```\r\n   o  A node that represented state data may be changed to represent\r\n      configuration, provided it is not mandatory (Section 3).\r\n```",
           "createdAt": "2023-10-23T10:45:38Z",
           "updatedAt": "2023-10-23T10:45:38Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2023-12-20 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2023-12-20.md)**\r\n\r\nIt has been reported that operators need to be able to configure some of these parameters (e.g., NE name) not only though the GUI of the controller but also through network level YANG models and therefore the rw access is needed for some attributes in the network inventory YANG model\r\n\r\nIn addition, there is a need to support the configuration of expected/intended inventory elements at the network level: see [issue #28](https://github.com/ietf-ivy-wg/network-inventory-yang/issues/28)\r\n\r\n- [ ] @YuChaode @italobusi  provide a summary of this discussion at the next IVY WG interim meeting\r\n",
+          "createdAt": "2024-01-09T19:18:02Z",
+          "updatedAt": "2024-01-09T19:18:02Z"
         }
       ]
     },
@@ -400,9 +415,9 @@
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "This is the slide we discussed in last week\r\n[Meeting Material_02.08.pptx](https://github.com/italobusi/ietf-network-inventory/files/10733238/Meeting.Material_02.08.pptx)\r\n",
+      "body": "This is the slide we discussed in last week\r\n[Meeting Material_02.08.pptx](https://github.com/ietf-ccamp-wg/ietf-network-inventory/files/10733238/Meeting.Material_02.08.pptx)\r\n",
       "createdAt": "2023-02-14T14:17:39Z",
-      "updatedAt": "2023-12-05T13:20:55Z",
+      "updatedAt": "2024-01-10T15:55:18Z",
       "closedAt": null,
       "comments": [
         {
@@ -814,6 +829,30 @@
           "body": "Redundant with https://github.com/ietf-ivy-wg/network-inventory-yang/issues/9",
           "createdAt": "2023-12-05T17:00:25Z",
           "updatedAt": "2023-12-05T17:00:25Z"
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "id": "I_kwDOKiDYo857j3GW",
+      "title": "Modelling of fibers and cables",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/32",
+      "state": "OPEN",
+      "author": "italobusi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-01-09T19:11:02Z",
+      "updatedAt": "2024-01-09T19:17:52Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2023-12-20 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2023-12-20.md)**\r\n\r\nChaode presented initial thoughts to model fibers and cables within the network inventory\r\n\r\nThere is a need to improve the terminology since cable can include multiple fibers: in ONF TAPI, the term 'strand' has been used\r\n\r\nThere is also an unbounded level of complexity when modelling fibers/cables: it has been suggested to take a look at the TAPI model for that\r\n\r\nThere is no need to report the MW connectivity since this information is already reported in the MW topology model\r\n\r\nThere was some discussion about whether this information belongs to the base network inventory model or to a network inventory augmentation model\r\n\r\nThis information is not under the control of the network controller and part of another inventory which can be imported by the network controller and exported in the network inventory model. Therefore it is fine to define this as an optional element for the network inventory.\r\n\r\nIt has also been proposed to define a new network-inventory top-level container to contain both the list of network elements as well as the list of fibers/cables:\r\n\r\n```\r\n+--rw network-inventory\r\n   +--rw network-elements\r\n   +--rw fibers/cables\r\n```\r\n\r\nThe following assumptions need to be confirmed during the next call:\r\n- define fibers/cables in a network-inventory augmentation model\r\n- define a new network-inventory top-level container on top of the network-elements container\r\n\r\nIt has been agreed that the fibers/cables inventory is not limited to include only fibers/cables between NEs but it may also include, as an implementation decision, option, fibers/cables within different components of the same NE",
+          "createdAt": "2024-01-09T19:17:51Z",
+          "updatedAt": "2024-01-09T19:17:51Z"
         }
       ]
     }
