@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-11T00:40:49.146380+00:00",
+  "timestamp": "2024-01-14T00:44:07.558244+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -206,7 +206,7 @@
       ],
       "body": "Need to further discuss whether the base network inventory YANG model should support write operations (RW) or not (RO)\r\n\r\nSee:\r\n\r\n- https://mailarchive.ietf.org/arch/msg/inventory-yang/Z6reCPdR3UGbHFl152AhB1_QIvw/\r\n- https://github.com/ietf-ccamp-wg/network-inventory-yang/issues/28\r\n- https://github.com/ietf-ccamp-wg/network-inventory-yang/issues/22\r\n- https://github.com/ietf-ccamp-wg/network-inventory-yang/issues/14\r\n",
       "createdAt": "2023-10-23T10:40:39Z",
-      "updatedAt": "2024-01-09T19:18:03Z",
+      "updatedAt": "2024-01-11T07:39:47Z",
       "closedAt": null,
       "comments": [
         {
@@ -222,6 +222,13 @@
           "body": "**[2023-12-20 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2023-12-20.md)**\r\n\r\nIt has been reported that operators need to be able to configure some of these parameters (e.g., NE name) not only though the GUI of the controller but also through network level YANG models and therefore the rw access is needed for some attributes in the network inventory YANG model\r\n\r\nIn addition, there is a need to support the configuration of expected/intended inventory elements at the network level: see [issue #28](https://github.com/ietf-ivy-wg/network-inventory-yang/issues/28)\r\n\r\n- [ ] @YuChaode @italobusi  provide a summary of this discussion at the next IVY WG interim meeting\r\n",
           "createdAt": "2024-01-09T19:18:02Z",
           "updatedAt": "2024-01-09T19:18:02Z"
+        },
+        {
+          "author": "YuChaode",
+          "authorAssociation": "COLLABORATOR",
+          "body": "the slide we presented in the interim meeting(2024-01-10):\r\n\r\n[Meeting Material_01.10.pptx](https://github.com/ietf-ivy-wg/network-inventory-yang/files/13898898/Meeting.Material_01.10.pptx)\r\n",
+          "createdAt": "2024-01-11T01:01:03Z",
+          "updatedAt": "2024-01-11T07:39:47Z"
         }
       ]
     },
