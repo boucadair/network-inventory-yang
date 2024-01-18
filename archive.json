@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-16T00:40:35.608642+00:00",
+  "timestamp": "2024-01-18T00:40:26.249460+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -57,6 +57,21 @@
       "name": "config",
       "description": "",
       "color": "FBCA04"
+    },
+    {
+      "name": "needs discussion",
+      "description": "",
+      "color": "FBCA04"
+    },
+    {
+      "name": "agreed",
+      "description": "",
+      "color": "0E8A16"
+    },
+    {
+      "name": "change-request",
+      "description": "",
+      "color": "5319E7"
     }
   ],
   "issues": [
@@ -120,11 +135,16 @@
       "state": "OPEN",
       "author": "italobusi",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
-      "labels": [],
+      "assignees": [
+        "YuChaode"
+      ],
+      "labels": [
+        "agreed",
+        "change-request"
+      ],
       "body": "Is still needed this section?",
       "createdAt": "2023-10-23T08:34:02Z",
-      "updatedAt": "2023-10-24T10:04:05Z",
+      "updatedAt": "2024-01-17T21:16:45Z",
       "closedAt": null,
       "comments": [
         {
@@ -133,6 +153,13 @@
           "body": "I think we can keep the text but move it to an appendix of the document",
           "createdAt": "2023-10-24T10:04:04Z",
           "updatedAt": "2023-10-24T10:04:04Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-01-17 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-17.md)**\r\n\r\nAgreed to move the text in section 2.5 to an Appendix\r\n\r\n- [ ] @YuChaode update the document accordingly\r\n",
+          "createdAt": "2024-01-17T21:04:22Z",
+          "updatedAt": "2024-01-17T21:04:22Z"
         }
       ]
     },
@@ -144,11 +171,16 @@
       "state": "OPEN",
       "author": "italobusi",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
-      "labels": [],
+      "assignees": [
+        "YuChaode"
+      ],
+      "labels": [
+        "enhancement",
+        "agreed"
+      ],
       "body": "Add an example of YANG code for the grouping (Component-Specific Info Design section)",
       "createdAt": "2023-10-23T08:34:32Z",
-      "updatedAt": "2024-01-09T19:17:38Z",
+      "updatedAt": "2024-01-17T21:11:14Z",
       "closedAt": null,
       "comments": [
         {
@@ -157,6 +189,20 @@
           "body": "**[2023-12-20 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2023-12-20.md)**\r\n\r\nThere was not time to discuss whether to use the choice or when statements to define component specific attributes: to be discussed in the next call\r\n\r\nIt has been pointed out that Netmod WG has recently had a similar discussion about choice versus when statement: it may be worthwhile reviewing the Netmod WG discussion before the next call\r\n",
           "createdAt": "2024-01-09T19:17:37Z",
           "updatedAt": "2024-01-09T19:17:37Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think there are three possible options\r\n\r\n**Option 1 (case+when)**\r\n\r\n```\r\n+--ro component* [component-id]\r\n   +--ro component-id            string\r\n   +--ro class                   union\r\n   ...........................................\r\n   +--ro (component-class)?\r\n   |  +--:(chassis)\r\n   |  |  +--ro chassis-specific-info   // when\r\n   |  +--:(container)\r\n   |  |  +--ro slot-specific-info   // when\r\n   |  +--:(module)\r\n   |  |  +--ro board-specific-info   // when\r\n   |  +--:(port)\r\n   |     +--ro port-specific-info   // when\r\n   ...........................................\r\n\r\n```\r\n\r\n**Option 2 (when-only)**\r\n\r\n```\r\n+--ro component* [component-id]\r\n   +--ro component-id            string\r\n   +--ro class                   union\r\n   ...........................................\r\n   +--ro chassis-specific-info   // when\r\n   +--ro slot-specific-info      // when\r\n   +--ro board-specific-info     // when\r\n   +--ro port-specific-info      // when\r\n   ...........................................\r\n```\r\n\r\n**Option 3 (case-only)**\r\n\r\n```\r\n+--ro component* [component-id]\r\n   +--ro component-id            string\r\n   +--ro (class)\r\n   |  +--:(chassis)\r\n   |  |  +--ro chassis!\r\n   |  +--:(container)\r\n   |  |  +--ro container!\r\n   |  +--:(module)\r\n   |  |  +--ro module!\r\n   |  +--:(port)\r\n   |     +--ro port!\r\n   ...........................................\r\n```\r\n\r\nOption 1 provides duplicated information and I would prefer not to adopt it: see also the mail thread on Netmod WG\r\n\r\nOption 3 would be preferable to Option 2 because, according to RFC8407, \"when\" statement evaluation is generally more expensive than \"if-feature\" or \"choice\" statements\r\n\r\nOption 2 would be preferable to Option 1 because it allows re-use of identities defined by IANA for hardware components and it is more aligned with RFC8348\r\n\r\n",
+          "createdAt": "2024-01-16T12:31:09Z",
+          "updatedAt": "2024-01-17T15:26:24Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-01-17 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-17.md)**\r\n\r\nAgreed to adopt option 3 since it is easier to understand from the code and lighter to implement\r\n\r\n- [ ] @YuChaode update the YANG model and I-D text accordingly\r\n",
+          "createdAt": "2024-01-17T21:08:11Z",
+          "updatedAt": "2024-01-17T21:08:11Z"
         }
       ]
     },
@@ -347,13 +393,25 @@
       "state": "OPEN",
       "author": "italobusi",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
-      "labels": [],
+      "assignees": [
+        "sergiobelotti"
+      ],
+      "labels": [
+        "documentation"
+      ],
       "body": "The comment is not related specifically to this sentence, but it is related in general to \"container\". I've noticed this term is never defined in the document. Shouldn't we add that?\r\n\r\n_Originally posted by @sergiobelotti in https://github.com/ietf-ccamp-wg/ietf-network-inventory/pull/51#discussion_r1001641252_\r\n\r\ncould we change this sentence to \"Openconfig-platform data model is NE-level and uses a generic component concept to describe its inner equipment and holders, which is similar to ietf-hardware model...\"? In the terminology of component at the beginning, component is also refer to equipment and holders.\r\n\r\n_Originally posted by @YuChaode in https://github.com/ietf-ccamp-wg/ietf-network-inventory/pull/51#discussion_r1003263854_\r\n      ",
       "createdAt": "2022-10-24T12:59:13Z",
-      "updatedAt": "2023-12-05T13:19:53Z",
+      "updatedAt": "2024-01-17T21:16:27Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-01-17 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-17.md)**\r\n\r\n- [ ] @sergiobelotti provide some text proposal to clarify the use of term container within this document\r\n",
+          "createdAt": "2024-01-17T21:05:17Z",
+          "updatedAt": "2024-01-17T21:05:17Z"
+        }
+      ]
     },
     {
       "number": 14,
@@ -389,11 +447,17 @@
       "state": "OPEN",
       "author": "vlopezalvarez",
       "authorAssociation": "NONE",
-      "assignees": [],
-      "labels": [],
+      "assignees": [
+        "sergiobelotti",
+        "YuChaode"
+      ],
+      "labels": [
+        "agreed",
+        "change-request"
+      ],
       "body": "Hi, I've seen that we have in the draft the concept of \"part number\". RFC 8348 defines the parameter model-name to obtain this information. \r\n\r\n\"The vendor-specific model name identifier string\r\n              associated with this physical component.  The preferred\r\n              value is the customer-visible part number, which may be\r\n              printed on the component itself.\"\r\n\r\nAs we're changing the model of 8348. Is there any reason to include the \"part number\" instead of reusing model-name?",
       "createdAt": "2022-12-21T17:57:32Z",
-      "updatedAt": "2023-12-05T13:20:39Z",
+      "updatedAt": "2024-01-17T21:15:44Z",
       "closedAt": null,
       "comments": [
         {
@@ -409,6 +473,13 @@
           "body": "Part-number is widely used in the community. Besides it matches with openconfig part-no, so industry-wide there is no confussion. ",
           "createdAt": "2023-03-15T14:21:12Z",
           "updatedAt": "2023-03-15T14:21:12Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-01-17 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-17.md)**\r\n\r\nThe rationale is described in section 2.4.3 of the draft\r\n\r\nIt has been noted that the YANG description needs to be updated\r\n\r\n- [ ] @YuChaode update the YANG description for the part-number\r\n\r\n- [ ] @sergiobelotti  check offline with Victor if he is ok with the proposed resolution\r\n",
+          "createdAt": "2024-01-17T21:06:31Z",
+          "updatedAt": "2024-01-17T21:06:31Z"
         }
       ]
     },
@@ -421,10 +492,13 @@
       "author": "YuChaode",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "documentation",
+        "needs discussion"
+      ],
       "body": "This is the slide we discussed in last week\r\n[Meeting Material_02.08.pptx](https://github.com/ietf-ccamp-wg/ietf-network-inventory/files/10733238/Meeting.Material_02.08.pptx)\r\n",
       "createdAt": "2023-02-14T14:17:39Z",
-      "updatedAt": "2024-01-10T15:55:18Z",
+      "updatedAt": "2024-01-17T21:10:14Z",
       "closedAt": null,
       "comments": [
         {
@@ -440,6 +514,13 @@
           "body": "The ITU-T definition seems to cover wider scope. Please be clear in the draft what is the scope here. Is there a term such as hardware inventory?",
           "createdAt": "2023-03-15T14:10:42Z",
           "updatedAt": "2023-03-15T14:10:42Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-01-17 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-17.md)**\r\n\r\nNeed to check for existing definitions in TMF and ITU-T\r\n\r\n- [ ] @All review existing definitions and the mail from Nigel to continue the discussion next week\r\n",
+          "createdAt": "2024-01-17T21:08:51Z",
+          "updatedAt": "2024-01-17T21:08:51Z"
         }
       ]
     },
@@ -483,19 +564,20 @@
       "id": "I_kwDOKiDYo854xR5l",
       "title": "Use node-id instead of uuid for indexing  network elements",
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/18",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "oscargdd",
       "authorAssociation": "NONE",
       "assignees": [
         "YuChaode"
       ],
       "labels": [
-        "enhancement"
+        "agreed",
+        "change-request"
       ],
       "body": "[RFC 8345](https://datatracker.ietf.org/doc/rfc8345/https://datatracker.ietf.org/doc/rfc8345/) uses node-id for the indexing of the nodes.  It would be better to have the same convention. Either reuse the node-id type, or use inet:uri. This way it is not restricted to the use of uuids.\r\n\r\n```\r\ntypedef node-id {\r\n       type inet:uri;\r\n       description\r\n         \"Identifier for a node.  The precise structure of the node-id\r\n          will be up to the implementation.  For example, some\r\n          implementations MAY pick a URI that includes the network-id\r\n          as part of the path.  The identifier SHOULD be chosen\r\n          such that the same node in a real network topology will\r\n          always be identified through the same identifier, even if\r\n          the data model is instantiated in separate datastores.  An\r\n          implementation MAY choose to capture semantics in the\r\n          identifier -- for example, to indicate the type of node.\";\r\n     }\r\n```",
       "createdAt": "2023-03-15T13:11:27Z",
-      "updatedAt": "2023-12-05T13:21:29Z",
-      "closedAt": null,
+      "updatedAt": "2024-01-17T21:17:31Z",
+      "closedAt": "2024-01-17T21:07:18Z",
       "comments": [
         {
           "author": "italobusi",
@@ -507,9 +589,16 @@
         {
           "author": "italobusi",
           "authorAssociation": "COLLABORATOR",
-          "body": "**[2023-06-14 Network Inventory weekly call](https://github.com/italobusi/ietf-network-inventory/blob/main/minutes/minutes-2023-06-14.md)**\r\n\r\n> It was clarified the issue applies to the identification of the network element and not to the identification of the components\r\n> \r\n> Using the node-id, which is an URI, allows also using UUID to identifiy NEs but allows other types of identification\r\n> \r\n> Chaode has raised concerns with using the node-id to correlate a node in the topology model with a NE in the inventory model in case of multi-layer NE\r\n> \r\n> Need to continue the discussiong it \r\n> \r\n\r\nIt has been clarified that the URI used for xxx is not correlated with the node-id in the topology model: the navigation between the inventory and the topology view can be done using the ietf-hw-inventory-ref-topo model\r\n\r\nAgreement to change the key for the network-element list to be an URI rather than a UUID\r\n",
+          "body": "**[2023-06-14 Network Inventory weekly call](https://github.com/italobusi/ietf-network-inventory/blob/main/minutes/minutes-2023-06-14.md)**\r\n\r\n> It was clarified the issue applies to the identification of the network element and not to the identification of the components\r\n> \r\n> Using the node-id, which is an URI, allows also using UUID to identifiy NEs but allows other types of identification\r\n> \r\n> Chaode has raised concerns with using the node-id to correlate a node in the topology model with a NE in the inventory model in case of multi-layer NE\r\n> \r\n> Need to continue the discussiong it \r\n> \r\n\r\nIt has been clarified that the URI used for ne-id is not correlated with the node-id in the topology model: the navigation between the inventory and the topology view can be done using the ietf-hw-inventory-ref-topo model\r\n\r\nAgreement to change the key for the network-element list to be an URI rather than a UUID\r\n",
           "createdAt": "2023-06-21T11:22:53Z",
-          "updatedAt": "2023-06-21T11:22:53Z"
+          "updatedAt": "2024-01-17T21:13:39Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-01-17 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-17.md)**\r\n\r\nThe list keys used to be UUID in the CCAMP WG draft but the ne-id and component-id have been defined as string, with the plan to re-discuss their types at a later stage\r\n\r\nJan: strings are hard to interpret but keys are intended just to identify something so they do not need to be interpreted\r\n\r\nAgreed to keep the ne-id and component-id as string to keep the model very flexible (URI and UUID are also strings)",
+          "createdAt": "2024-01-17T21:07:18Z",
+          "updatedAt": "2024-01-17T21:07:18Z"
         }
       ]
     },
@@ -534,16 +623,34 @@
       "id": "I_kwDOKiDYo854xSXG",
       "title": "Indicate per-component attributes",
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/20",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "oscargdd",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "duplicate",
+        "enhancement"
+      ],
       "body": "Now, the model defines atributes common for all components. However, we need to start clarifying for each component which is the information required.",
       "createdAt": "2023-03-15T15:23:24Z",
-      "updatedAt": "2023-12-05T13:22:15Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2024-01-17T21:17:53Z",
+      "closedAt": "2024-01-17T21:07:45Z",
+      "comments": [
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Is this issue duplicated with #5?",
+          "createdAt": "2024-01-16T12:17:04Z",
+          "updatedAt": "2024-01-16T12:17:04Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-01-17 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-17.md)**\r\n\r\nClosed since it is duplicated with #5",
+          "createdAt": "2024-01-17T21:07:45Z",
+          "updatedAt": "2024-01-17T21:07:45Z"
+        }
+      ]
     },
     {
       "number": 21,
