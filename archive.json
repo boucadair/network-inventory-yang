@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-23T00:41:50.136671+00:00",
+  "timestamp": "2024-01-25T00:41:17.360164+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -176,11 +176,11 @@
       ],
       "labels": [
         "enhancement",
-        "agreed"
+        "needs discussion"
       ],
       "body": "Add an example of YANG code for the grouping (Component-Specific Info Design section)",
       "createdAt": "2023-10-23T08:34:32Z",
-      "updatedAt": "2024-01-17T21:11:14Z",
+      "updatedAt": "2024-01-24T17:03:56Z",
       "closedAt": null,
       "comments": [
         {
@@ -203,6 +203,13 @@
           "body": "**[2024-01-17 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-17.md)**\r\n\r\nAgreed to adopt option 3 since it is easier to understand from the code and lighter to implement\r\n\r\n- [ ] @YuChaode update the YANG model and I-D text accordingly\r\n",
           "createdAt": "2024-01-17T21:08:11Z",
           "updatedAt": "2024-01-17T21:08:11Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> **[2024-01-24 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-24.md)**\r\n\r\nChaode has a concern with removing the class attribute. Without this attribute it would not be possible to do some filtering to retrieve all the components of a given class\r\n\r\nThis issue requires further discussion in the next call(s)",
+          "createdAt": "2024-01-24T17:03:39Z",
+          "updatedAt": "2024-01-24T17:03:39Z"
         }
       ]
     },
@@ -401,7 +408,7 @@
       ],
       "body": "The comment is not related specifically to this sentence, but it is related in general to \"container\". I've noticed this term is never defined in the document. Shouldn't we add that?\r\n\r\n_Originally posted by @sergiobelotti in https://github.com/ietf-ccamp-wg/ietf-network-inventory/pull/51#discussion_r1001641252_\r\n\r\ncould we change this sentence to \"Openconfig-platform data model is NE-level and uses a generic component concept to describe its inner equipment and holders, which is similar to ietf-hardware model...\"? In the terminology of component at the beginning, component is also refer to equipment and holders.\r\n\r\n_Originally posted by @YuChaode in https://github.com/ietf-ccamp-wg/ietf-network-inventory/pull/51#discussion_r1003263854_\r\n      ",
       "createdAt": "2022-10-24T12:59:13Z",
-      "updatedAt": "2024-01-22T16:16:14Z",
+      "updatedAt": "2024-01-24T17:03:13Z",
       "closedAt": null,
       "comments": [
         {
@@ -417,6 +424,13 @@
           "body": "> **[2024-01-17 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-17.md)**\r\n> \r\n> * [ ]  @sergiobelotti provide some text proposal to clarify the use of term container within this document\r\n\r\nFor my AP , this is a proposed text to add in our inventory base draft:\r\n\r\n\" Within this document , with the term \"container\" we consider an hardware component class capable of containing one or more removable physical entities, e.g. a slot in a chassis is containing a board. \"",
           "createdAt": "2024-01-22T16:16:13Z",
           "updatedAt": "2024-01-22T16:16:13Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> **[2024-01-24 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-24.md)**\r\n\r\n> - [x] @sergiobelotti provide some text proposal to clarify the use of term container within this document\r\n\r\nThe term 'container' may have a broader meaning that the term 'holder', including bins, cabinets, ...\r\n\r\nHowever, in the context of RFC8348 and in the context of components defined in the base inventory model, the term 'container' and 'holder' look synonymous\r\n\r\nAgreed to use the term 'container' in this document, providing a definition as proposed in github and add an appendix with a terminology mapping to show e.g., that the term 'container' in this draft maps with the term 'holder' in other models\r\n\r\nThe terms 'container component' or 'YANG container' can also be used when needed to avoid confusion/ambiguity.\r\n\r\n- [ ] @YuChaode : update the document as agreed\r\n",
+          "createdAt": "2024-01-24T17:03:11Z",
+          "updatedAt": "2024-01-24T17:03:13Z"
         }
       ]
     },
@@ -464,7 +478,7 @@
       ],
       "body": "Hi, I've seen that we have in the draft the concept of \"part number\". RFC 8348 defines the parameter model-name to obtain this information. \r\n\r\n\"The vendor-specific model name identifier string\r\n              associated with this physical component.  The preferred\r\n              value is the customer-visible part number, which may be\r\n              printed on the component itself.\"\r\n\r\nAs we're changing the model of 8348. Is there any reason to include the \"part number\" instead of reusing model-name?",
       "createdAt": "2022-12-21T17:57:32Z",
-      "updatedAt": "2024-01-17T21:15:44Z",
+      "updatedAt": "2024-01-24T17:03:32Z",
       "closedAt": null,
       "comments": [
         {
@@ -487,6 +501,13 @@
           "body": "**[2024-01-17 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-17.md)**\r\n\r\nThe rationale is described in section 2.4.3 of the draft\r\n\r\nIt has been noted that the YANG description needs to be updated\r\n\r\n- [ ] @YuChaode update the YANG description for the part-number\r\n\r\n- [ ] @sergiobelotti  check offline with Victor if he is ok with the proposed resolution\r\n",
           "createdAt": "2024-01-17T21:06:31Z",
           "updatedAt": "2024-01-17T21:06:31Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> **[2024-01-24 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-24.md)**\r\n\r\nModel changes proposed by Chaode has been reviewed during the call\r\n\r\nThe definition of part-number of the component has been updated based on the discussion\r\n\r\nThe part-number attribute is not applicable to NE. It has been agreed to rename the attribute as assembly-id as a working name and open a new issue to refine the name and description of the assembly-id attribute: see issue xxx\r\n\r\n> * [ ]  @YuChaode update the YANG description for the part-number",
+          "createdAt": "2024-01-24T17:03:30Z",
+          "updatedAt": "2024-01-24T17:03:30Z"
         }
       ]
     },
