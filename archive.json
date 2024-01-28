@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-25T00:41:17.360164+00:00",
+  "timestamp": "2024-01-28T00:40:30.335247+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -478,7 +478,7 @@
       ],
       "body": "Hi, I've seen that we have in the draft the concept of \"part number\". RFC 8348 defines the parameter model-name to obtain this information. \r\n\r\n\"The vendor-specific model name identifier string\r\n              associated with this physical component.  The preferred\r\n              value is the customer-visible part number, which may be\r\n              printed on the component itself.\"\r\n\r\nAs we're changing the model of 8348. Is there any reason to include the \"part number\" instead of reusing model-name?",
       "createdAt": "2022-12-21T17:57:32Z",
-      "updatedAt": "2024-01-24T17:03:32Z",
+      "updatedAt": "2024-01-25T12:57:30Z",
       "closedAt": null,
       "comments": [
         {
@@ -505,9 +505,9 @@
         {
           "author": "italobusi",
           "authorAssociation": "COLLABORATOR",
-          "body": "> **[2024-01-24 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-24.md)**\r\n\r\nModel changes proposed by Chaode has been reviewed during the call\r\n\r\nThe definition of part-number of the component has been updated based on the discussion\r\n\r\nThe part-number attribute is not applicable to NE. It has been agreed to rename the attribute as assembly-id as a working name and open a new issue to refine the name and description of the assembly-id attribute: see issue xxx\r\n\r\n> * [ ]  @YuChaode update the YANG description for the part-number",
+          "body": "> **[2024-01-24 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-24.md)**\r\n\r\nModel changes proposed by Chaode has been reviewed during the call\r\n\r\nThe definition of part-number of the component has been updated based on the discussion\r\n\r\nThe part-number attribute is not applicable to NE. It has been agreed to rename the attribute as assembly-id as a working name and open a new issue to refine the name and description of the assembly-id attribute: see issue #33 \r\n\r\n> * [ ]  @YuChaode update the YANG description for the part-number",
           "createdAt": "2024-01-24T17:03:30Z",
-          "updatedAt": "2024-01-24T17:03:30Z"
+          "updatedAt": "2024-01-25T12:57:30Z"
         }
       ]
     },
@@ -997,6 +997,30 @@
           "updatedAt": "2024-01-09T19:17:51Z"
         }
       ]
+    },
+    {
+      "number": 33,
+      "id": "I_kwDOKiDYo859MLjn",
+      "title": "Refine NE assembly-id attribute",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/33",
+      "state": "OPEN",
+      "author": "italobusi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Refine the name and description of the assembly-id attribute for the NE",
+      "createdAt": "2024-01-25T12:57:05Z",
+      "updatedAt": "2024-01-26T09:31:58Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "YuChaode",
+          "authorAssociation": "COLLABORATOR",
+          "body": "For part-number, it is really not needed for NE. \r\nAnd for assembly-id, i am wandering whether we need this id or not. Currently we have ne-id, uuid, asset-id and URI defined in the current model, i think it is sufficient for NE. And for this terminology of assembly-id, there is not a common understanding in transport industry. \r\nso i  propose to remove part-number instead of refining it to assembly-id, and use the product-name attribute of current module to provide this assembly-id information?",
+          "createdAt": "2024-01-26T09:20:15Z",
+          "updatedAt": "2024-01-26T09:31:58Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -1041,6 +1065,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 34,
+      "id": "PR_kwDOKiDYo85lLAGr",
+      "title": "update the data model according recent discussion",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/pull/34",
+      "state": "OPEN",
+      "author": "YuChaode",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "1. add a new root;\r\n2. remove part-number from NE;\r\n3. add component-specific structure;\r\n4. change the configuration capabilities of attributes;\r\n5. add text proposal from Sergio about container;\r\n6. move the section of scalability issue to appendix;",
+      "createdAt": "2024-01-26T15:57:02Z",
+      "updatedAt": "2024-01-26T17:40:51Z",
+      "baseRepository": "ietf-ivy-wg/network-inventory-yang",
+      "baseRefName": "main",
+      "baseRefOid": "9a80fac46034e6ecb9c58a8f6a7970e4063633f1",
+      "headRepository": "YuChaode/network-inventory-yang",
+      "headRefName": "main",
+      "headRefOid": "8b515b9400bb5914d11d9866dcca32921151e80f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
