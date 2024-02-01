@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-30T00:37:59.334404+00:00",
+  "timestamp": "2024-02-01T00:39:48.441294+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -478,7 +478,7 @@
       ],
       "body": "Hi, I've seen that we have in the draft the concept of \"part number\". RFC 8348 defines the parameter model-name to obtain this information. \r\n\r\n\"The vendor-specific model name identifier string\r\n              associated with this physical component.  The preferred\r\n              value is the customer-visible part number, which may be\r\n              printed on the component itself.\"\r\n\r\nAs we're changing the model of 8348. Is there any reason to include the \"part number\" instead of reusing model-name?",
       "createdAt": "2022-12-21T17:57:32Z",
-      "updatedAt": "2024-01-25T12:57:30Z",
+      "updatedAt": "2024-01-31T08:46:40Z",
       "closedAt": null,
       "comments": [
         {
@@ -508,6 +508,20 @@
           "body": "> **[2024-01-24 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-24.md)**\r\n\r\nModel changes proposed by Chaode has been reviewed during the call\r\n\r\nThe definition of part-number of the component has been updated based on the discussion\r\n\r\nThe part-number attribute is not applicable to NE. It has been agreed to rename the attribute as assembly-id as a working name and open a new issue to refine the name and description of the assembly-id attribute: see issue #33 \r\n\r\n> * [ ]  @YuChaode update the YANG description for the part-number",
           "createdAt": "2024-01-24T17:03:30Z",
           "updatedAt": "2024-01-25T12:57:30Z"
+        },
+        {
+          "author": "lana-wu",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Similar with Victor, I suggest that \"model-name\" in RFC 8348 be reused. This node applies only to components, not NEs.",
+          "createdAt": "2024-01-31T02:41:51Z",
+          "updatedAt": "2024-01-31T02:41:51Z"
+        },
+        {
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I tend to agree with Bo's comment: one thing is discussing the opportunity or not to use part-number on behalf of model-name for component only another thing is mixing things and introduce another term , not defined in RFC8348, considering also NE while model-name does not .\r\n",
+          "createdAt": "2024-01-31T08:46:39Z",
+          "updatedAt": "2024-01-31T08:46:39Z"
         }
       ]
     },
@@ -526,7 +540,7 @@
       ],
       "body": "This is the slide we discussed in last week\r\n[Meeting Material_02.08.pptx](https://github.com/ietf-ccamp-wg/ietf-network-inventory/files/10733238/Meeting.Material_02.08.pptx)\r\n",
       "createdAt": "2023-02-14T14:17:39Z",
-      "updatedAt": "2024-01-17T21:10:14Z",
+      "updatedAt": "2024-01-31T18:06:16Z",
       "closedAt": null,
       "comments": [
         {
@@ -549,6 +563,13 @@
           "body": "**[2024-01-17 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-17.md)**\r\n\r\nNeed to check for existing definitions in TMF and ITU-T\r\n\r\n- [ ] @All review existing definitions and the mail from Nigel to continue the discussion next week\r\n",
           "createdAt": "2024-01-17T21:08:51Z",
           "updatedAt": "2024-01-17T21:08:51Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**2024-01-31 Base Network Inventory weekly call**\r\n\r\nDraft notes (under review by participants): https://demo.hedgedoc.org/bnxaJkGwQTiOXJIRr0YQXA",
+          "createdAt": "2024-01-31T18:06:15Z",
+          "updatedAt": "2024-01-31T18:06:15Z"
         }
       ]
     },
@@ -1010,7 +1031,7 @@
       "labels": [],
       "body": "Refine the name and description of the assembly-id attribute for the NE",
       "createdAt": "2024-01-25T12:57:05Z",
-      "updatedAt": "2024-01-26T09:31:58Z",
+      "updatedAt": "2024-01-31T02:43:01Z",
       "closedAt": null,
       "comments": [
         {
@@ -1019,6 +1040,13 @@
           "body": "For part-number, it is really not needed for NE. \r\nAnd for assembly-id, i am wandering whether we need this id or not. Currently we have ne-id, uuid, asset-id and URI defined in the current model, i think it is sufficient for NE. And for this terminology of assembly-id, there is not a common understanding in transport industry. \r\nso i  propose to remove part-number instead of refining it to assembly-id, and use the product-name attribute of current module to provide this assembly-id information?",
           "createdAt": "2024-01-26T09:20:15Z",
           "updatedAt": "2024-01-26T09:31:58Z"
+        },
+        {
+          "author": "lana-wu",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think \"assembly-id\" is confusing. I suggest that \"model-name\" in RFC 8348 be reused. ",
+          "createdAt": "2024-01-31T02:43:00Z",
+          "updatedAt": "2024-01-31T02:43:00Z"
         }
       ]
     }
@@ -1078,7 +1106,7 @@
       "labels": [],
       "body": "1. add a new root;\r\n2. remove part-number from NE;\r\n3. add component-specific structure;\r\n4. change the configuration capabilities of attributes;\r\n5. add text proposal from Sergio about container;\r\n6. move the section of scalability issue to appendix;",
       "createdAt": "2024-01-26T15:57:02Z",
-      "updatedAt": "2024-01-26T17:40:51Z",
+      "updatedAt": "2024-01-31T14:49:54Z",
       "baseRepository": "ietf-ivy-wg/network-inventory-yang",
       "baseRefName": "main",
       "baseRefOid": "9a80fac46034e6ecb9c58a8f6a7970e4063633f1",
