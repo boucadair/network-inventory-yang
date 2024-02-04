@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-01T00:39:48.441294+00:00",
+  "timestamp": "2024-02-04T00:41:07.804017+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1049,6 +1049,22 @@
           "updatedAt": "2024-01-31T02:43:00Z"
         }
       ]
+    },
+    {
+      "number": 35,
+      "id": "I_kwDOKiDYo85-DPze",
+      "title": "Unclear boundary for Ivy work",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/35",
+      "state": "OPEN",
+      "author": "nigel-r-davis",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "It is clear that we do not have a tight enough definition of the boundary on the Ivy work. We need to understand what is in scope and what not. It is not practical to list all things in scope, so instead we need rules against which we can evaluate whether something is in scope or out of scope.\r\n\r\nClearly, there are some things we would all agree are in scope and other things we would agree are out of scope. Identifying the inherent properties of those things will help. \r\n\r\nBut there are things that we do not agree about and even if we had a complete definition, there are things on the boundary or that straddle the boundary.\r\n\r\nI emailed the list with some thoughts on how to organize things on a  \"map\" to help us define the boundary.\r\n\r\nI have attempted to sketch a map of things (over simplified in many places) that includes some questions and some sketch definitions. I would be happy to discuss this on our next call.\r\n[IvyBoundary.pptx](https://github.com/ietf-ivy-wg/network-inventory-yang/files/14139708/IvyBoundary.pptx)\r\n",
+      "createdAt": "2024-02-02T12:03:16Z",
+      "updatedAt": "2024-02-02T12:04:41Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
