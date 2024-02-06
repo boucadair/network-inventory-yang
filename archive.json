@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-04T00:41:07.804017+00:00",
+  "timestamp": "2024-02-06T00:37:37.799479+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -540,7 +540,7 @@
       ],
       "body": "This is the slide we discussed in last week\r\n[Meeting Material_02.08.pptx](https://github.com/ietf-ccamp-wg/ietf-network-inventory/files/10733238/Meeting.Material_02.08.pptx)\r\n",
       "createdAt": "2023-02-14T14:17:39Z",
-      "updatedAt": "2024-01-31T18:06:16Z",
+      "updatedAt": "2024-02-05T10:44:56Z",
       "closedAt": null,
       "comments": [
         {
@@ -567,9 +567,9 @@
         {
           "author": "italobusi",
           "authorAssociation": "COLLABORATOR",
-          "body": "**2024-01-31 Base Network Inventory weekly call**\r\n\r\nDraft notes (under review by participants): https://demo.hedgedoc.org/bnxaJkGwQTiOXJIRr0YQXA",
+          "body": "**[2024-01-31 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-31.md)**\r\n\r\nA 'physical thing' can be seen as something that can be measured with a ruler and potentially weighed with scales\r\n\r\nA NE is not a physical thing: inventory can consider also useful 'grouping/structure of physical things' like network elements (sometimes called device)\r\n\r\nNote: in case of geographically distributed components, with the current model it is possible to group these distributed components as multiple NEs or as a single NE.\r\n\r\nNote: it is important to also consider how the information about the physical things is accessed (this is often an aspect of NE)\r\n\r\nThe 'functional behavior' is outside the scope of the inventory work: the topology, interface and other YANG models are covering the functional behavior. Some navigation capability is needed and the definition of the navigation can be in the scope.\r\n\r\nNeed to clarify that the term inventory in our context is not an unconstrained 'list of anything' but be more precise about the scope of what we are listing. In our context for this initial work, inventory is a representation of the structure of physical things (i.e., not just a list and not all things).\r\n\r\nThere are informational things. Software is an 'informational thing' and it is in the scope of the work (although perhaps not in the first stage). Note that software is not {{Italo: I added not here as I think that that is what you meant to type and it is certainly what I was trying to say}} intended to be the running software which instead is representing the emergent 'functional behavior'.\r\n\r\n- [ ] @nigel-r-davis  prepare some diagrams to show the entities in the scope of our work\r\n\r\nA traditional NE is an assembly of physical things, informational things, the functionality emergent when powered along with the method of access. A virtual NE does not directly have physical components. There are also hybrid NEs with some virtual components and some physical components.\r\n\r\nIt has been suggested also to look at the definitions in draft-palmero-ivy-ps-almo (in particular the asset definition) to see if there are also some concepts that can be used to defined what is in the scope for IVY \r\n\r\n- [ ] Marisol: suggest some improvements to the definitions based on TMF\r\n",
           "createdAt": "2024-01-31T18:06:15Z",
-          "updatedAt": "2024-01-31T18:06:15Z"
+          "updatedAt": "2024-02-05T10:44:56Z"
         }
       ]
     },
@@ -1122,7 +1122,7 @@
       "labels": [],
       "body": "1. add a new root;\r\n2. remove part-number from NE;\r\n3. add component-specific structure;\r\n4. change the configuration capabilities of attributes;\r\n5. add text proposal from Sergio about container;\r\n6. move the section of scalability issue to appendix;",
       "createdAt": "2024-01-26T15:57:02Z",
-      "updatedAt": "2024-01-31T14:49:54Z",
+      "updatedAt": "2024-02-05T15:56:51Z",
       "baseRepository": "ietf-ivy-wg/network-inventory-yang",
       "baseRefName": "main",
       "baseRefOid": "9a80fac46034e6ecb9c58a8f6a7970e4063633f1",
@@ -1134,7 +1134,48 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOKiDYo85vCNl5",
+          "commit": {
+            "abbreviatedOid": "8b515b9"
+          },
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-05T13:48:45Z",
+          "updatedAt": "2024-02-05T15:47:47Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "As reported in the description of component-specific-info grouping what is indicated in the structure is specific attributes related to specific type of component e.g. chassis, container etc. \r\nI would change the text as \"Attributes related to specific class of component can be found in the component-specific-info structure\".  ",
+              "createdAt": "2024-02-05T13:48:45Z",
+              "updatedAt": "2024-02-05T15:47:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vDZX9",
+          "commit": {
+            "abbreviatedOid": "8b515b9"
+          },
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-05T15:54:17Z",
+          "updatedAt": "2024-02-05T15:56:51Z",
+          "comments": [
+            {
+              "originalPosition": 51,
+              "body": "Why part-number is still present in the sub-tree of NE?",
+              "createdAt": "2024-02-05T15:54:17Z",
+              "updatedAt": "2024-02-05T15:56:51Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
