@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-06T00:37:37.799479+00:00",
+  "timestamp": "2024-02-08T00:37:39.403043+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -478,7 +478,7 @@
       ],
       "body": "Hi, I've seen that we have in the draft the concept of \"part number\". RFC 8348 defines the parameter model-name to obtain this information. \r\n\r\n\"The vendor-specific model name identifier string\r\n              associated with this physical component.  The preferred\r\n              value is the customer-visible part number, which may be\r\n              printed on the component itself.\"\r\n\r\nAs we're changing the model of 8348. Is there any reason to include the \"part number\" instead of reusing model-name?",
       "createdAt": "2022-12-21T17:57:32Z",
-      "updatedAt": "2024-01-31T08:46:40Z",
+      "updatedAt": "2024-02-07T22:26:38Z",
       "closedAt": null,
       "comments": [
         {
@@ -522,6 +522,13 @@
           "body": "I tend to agree with Bo's comment: one thing is discussing the opportunity or not to use part-number on behalf of model-name for component only another thing is mixing things and introduce another term , not defined in RFC8348, considering also NE while model-name does not .\r\n",
           "createdAt": "2024-01-31T08:46:39Z",
           "updatedAt": "2024-01-31T08:46:39Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> \"The vendor-specific model name identifier string\r\n> associated with this physical component. The preferred\r\n> value is the customer-visible part number, which may be\r\n> printed on the component itself.\"\r\n\r\n@sergiobelotti @lana-wu I am a bit confused about whether your comments are referring to:\r\n1. use of \"part-number\" or \"model-name\" attribute for the component\r\n2. use of \"asset-id\" or \"model-name\" (or \"product-name\" for the NE\r\n\r\nI would suggest using this issue to discuss point 1 and issue #33 to discuss point 2\r\n\r\nRegarding point 1, I have understood from the previous calls that we have agreed to use \"part-number\" or \"model-name\" attribute for the component, pending confirmation with Victor and marked this issue as agreed accordingly\r\n\r\nPlease let me know if my understanding is not correct: if needed, we can discuss it again in the next calls (and mark this issue as under-discussion to avoid confusion)",
+          "createdAt": "2024-02-07T22:23:51Z",
+          "updatedAt": "2024-02-07T22:26:38Z"
         }
       ]
     },
@@ -1028,10 +1035,13 @@
       "author": "italobusi",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "needs discussion",
+        "change-request"
+      ],
       "body": "Refine the name and description of the assembly-id attribute for the NE",
       "createdAt": "2024-01-25T12:57:05Z",
-      "updatedAt": "2024-01-31T02:43:01Z",
+      "updatedAt": "2024-02-07T22:16:50Z",
       "closedAt": null,
       "comments": [
         {
@@ -1047,6 +1057,13 @@
           "body": "I think \"assembly-id\" is confusing. I suggest that \"model-name\" in RFC 8348 be reused. ",
           "createdAt": "2024-01-31T02:43:00Z",
           "updatedAt": "2024-01-31T02:43:00Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I am ok with \"model-name\" but I am also wondering what would be the difference between \"model-name\" and \"product-name\" ...\r\n\r\nIMHO, we have two options:\r\n1. remove \"asset-id\" and keep \"product-name\"\r\n2. remove both \"product-name\" and \"asset-id\" and add \"model-name\"\r\n\r\nI have a slight preference for option 1 but I can live with option 2 as well",
+          "createdAt": "2024-02-07T22:15:21Z",
+          "updatedAt": "2024-02-07T22:15:21Z"
         }
       ]
     },
@@ -1122,13 +1139,13 @@
       "labels": [],
       "body": "1. add a new root;\r\n2. remove part-number from NE;\r\n3. add component-specific structure;\r\n4. change the configuration capabilities of attributes;\r\n5. add text proposal from Sergio about container;\r\n6. move the section of scalability issue to appendix;",
       "createdAt": "2024-01-26T15:57:02Z",
-      "updatedAt": "2024-02-05T15:56:51Z",
+      "updatedAt": "2024-02-07T09:46:34Z",
       "baseRepository": "ietf-ivy-wg/network-inventory-yang",
       "baseRefName": "main",
       "baseRefOid": "9a80fac46034e6ecb9c58a8f6a7970e4063633f1",
       "headRepository": "YuChaode/network-inventory-yang",
       "headRefName": "main",
-      "headRefOid": "8b515b9400bb5914d11d9866dcca32921151e80f",
+      "headRefOid": "1a75ea552e36c16bf1462fce181965a825335eab",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -1172,6 +1189,264 @@
               "body": "Why part-number is still present in the sub-tree of NE?",
               "createdAt": "2024-02-05T15:54:17Z",
               "updatedAt": "2024-02-05T15:56:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vH_Lp",
+          "commit": {
+            "abbreviatedOid": "8b515b9"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-06T06:24:39Z",
+          "updatedAt": "2024-02-06T06:24:40Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "Thank you Sergio! I changed this sentence to be \"Different types of components can be distinguished by the class of component. The component \"class\" is defined as a union between the hardware class identity, defined in \"iana-hardware\", and the \"non-hardware\" identity, defined in this document. Attributes related to specific class of component can be found in the component-specific-info structure.\" In the previous discussion, Italo suggested to remove class attribute and different types of components can be identified by the component-specific structure. I raised a concern that it is hard to do a filtering if there is not a class attribute. So I prefer to keeping class attribute still in this draft at first, and whetherto keep it or not still needs more discussions.  ",
+              "createdAt": "2024-02-06T06:24:39Z",
+              "updatedAt": "2024-02-06T06:24:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vH_x7",
+          "commit": {
+            "abbreviatedOid": "8b515b9"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-06T06:27:02Z",
+          "updatedAt": "2024-02-06T06:27:02Z",
+          "comments": [
+            {
+              "originalPosition": 51,
+              "body": "Thanks Sergio! I removed this part-number from tree structure today. But there is still some debate on removing part-number/repacing it with assembly-id/module-name in Issue#33.",
+              "createdAt": "2024-02-06T06:27:02Z",
+              "updatedAt": "2024-02-06T06:27:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vIyo-",
+          "commit": {
+            "abbreviatedOid": "8b515b9"
+          },
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-06T08:47:03Z",
+          "updatedAt": "2024-02-06T08:47:03Z",
+          "comments": [
+            {
+              "originalPosition": 51,
+              "body": "Hi Chaode, yes I know about assembly-id , my suggestion was only on the fact that in YANG modeule part-numer does not appear anymore, but is still there in the tree.  Thanks\r\n",
+              "createdAt": "2024-02-06T08:47:03Z",
+              "updatedAt": "2024-02-06T08:47:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vNbc6",
+          "commit": {
+            "abbreviatedOid": "6c722b9"
+          },
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Few comments to be addressed before merging the PR:\r\n1. Please update the YANG revision date every time the YANG module is updated;\r\n2. See also some detailed review comments within the files changed\r\n\r\nAdditional comments that may be addressed after the PR is merged (if not addressed, we can track them as new open issues):\r\n1. There is no need for empty grouping for the component-specific attributes. An empty container defined as an augmentation target should be enough for the base network inventory model\r\n2. It is preferable to avoid defining grouping when used once unless this would help the readability of the code",
+          "createdAt": "2024-02-06T16:33:35Z",
+          "updatedAt": "2024-02-06T16:43:58Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "The `component-class` is at the same level as `component-id`:\r\n\r\n```suggestion\r\n+--rw components\r\n   +--rw component* [component-id]\r\n      +--rw component-id            string\r\n      .......................................\r\n      +--rw (component-class)?\r\n         +--:(chassis)\r\n         |  +--rw chassis-specific-info\r\n         +--:(container)\r\n         |  +--rw slot-specific-info\r\n         +--:(module)\r\n         |  +--rw board-specific-info\r\n         +--:(port)\r\n         |  +--rw port-specific-info\r\n         +--:(software)\r\n            +--rw software-specific-info\r\n```",
+              "createdAt": "2024-02-06T16:33:35Z",
+              "updatedAt": "2024-02-06T16:43:58Z"
+            },
+            {
+              "originalPosition": 93,
+              "body": "In order to have an appendix number, please move this text before the `{: numbered=\"false\"}` code",
+              "createdAt": "2024-02-06T16:35:19Z",
+              "updatedAt": "2024-02-06T16:43:58Z"
+            },
+            {
+              "originalPosition": 9,
+              "body": "I think you need to import iana-hardware: it is used by the class data node below\r\n\r\n",
+              "createdAt": "2024-02-06T16:36:53Z",
+              "updatedAt": "2024-02-06T16:43:58Z"
+            },
+            {
+              "originalPosition": 78,
+              "body": "Unless we agree that this model can only be used as RO, it is possible that some component-specific attribute might be RW. It is suggested not to preclude this option:\r\n\r\n```suggestion\r\n```",
+              "createdAt": "2024-02-06T16:39:11Z",
+              "updatedAt": "2024-02-06T16:43:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vO8eG",
+          "commit": {
+            "abbreviatedOid": "6c722b9"
+          },
+          "author": "philbedard",
+          "authorAssociation": "NONE",
+          "state": "CHANGES_REQUESTED",
+          "body": "Just the clarification on the class section otherwise the rest looked good.  ",
+          "createdAt": "2024-02-06T19:48:56Z",
+          "updatedAt": "2024-02-06T20:31:56Z",
+          "comments": [
+            {
+              "originalPosition": 76,
+              "body": "Just to make it clearer we are talking about the component class and not additional attributes specific to a single component.  \r\n\r\n```suggestion\r\n   grouping component-class-specific-info-grouping {\r\n    description \r\n      \"Provide additional attributes for a specific component class\";\r\n```",
+              "createdAt": "2024-02-06T19:48:56Z",
+              "updatedAt": "2024-02-06T20:31:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vQ6wr",
+          "commit": {
+            "abbreviatedOid": "8b515b9"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T01:20:19Z",
+          "updatedAt": "2024-02-07T01:20:20Z",
+          "comments": [
+            {
+              "originalPosition": 51,
+              "body": "thank you Sergio, now it is removed.",
+              "createdAt": "2024-02-07T01:20:19Z",
+              "updatedAt": "2024-02-07T01:20:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vQ6-V",
+          "commit": {
+            "abbreviatedOid": "6c722b9"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T01:21:16Z",
+          "updatedAt": "2024-02-07T01:21:17Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "Thank you Italo, now it is moved to the same level with component-id.",
+              "createdAt": "2024-02-07T01:21:16Z",
+              "updatedAt": "2024-02-07T01:21:17Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vQ7Ah",
+          "commit": {
+            "abbreviatedOid": "6c722b9"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T01:21:28Z",
+          "updatedAt": "2024-02-07T01:21:28Z",
+          "comments": [
+            {
+              "originalPosition": 93,
+              "body": "Fixed.",
+              "createdAt": "2024-02-07T01:21:28Z",
+              "updatedAt": "2024-02-07T01:21:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vQ7EB",
+          "commit": {
+            "abbreviatedOid": "6c722b9"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T01:21:45Z",
+          "updatedAt": "2024-02-07T01:21:45Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "Thank you, it is added back.",
+              "createdAt": "2024-02-07T01:21:45Z",
+              "updatedAt": "2024-02-07T01:21:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vQ7bk",
+          "commit": {
+            "abbreviatedOid": "6c722b9"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T01:23:40Z",
+          "updatedAt": "2024-02-07T01:23:40Z",
+          "comments": [
+            {
+              "originalPosition": 78,
+              "body": "Now this structure is configable. But i have a concern that the change from RW to RO will be a NBC.",
+              "createdAt": "2024-02-07T01:23:40Z",
+              "updatedAt": "2024-02-07T01:23:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vQ8yP",
+          "commit": {
+            "abbreviatedOid": "6c722b9"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T01:28:45Z",
+          "updatedAt": "2024-02-07T01:28:46Z",
+          "comments": [
+            {
+              "originalPosition": 76,
+              "body": "Sorry Phil, this structure is actually designed for additional attributes specific to a single type of component.  Just like what we said in the section of 2.4.2.",
+              "createdAt": "2024-02-07T01:28:46Z",
+              "updatedAt": "2024-02-07T01:28:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKiDYo85vTbqR",
+          "commit": {
+            "abbreviatedOid": "6c722b9"
+          },
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T09:46:34Z",
+          "updatedAt": "2024-02-07T09:46:34Z",
+          "comments": [
+            {
+              "originalPosition": 78,
+              "body": "Maybe you are talking about the opposite, I mean to move data nodes for RO to RW, this is what Italo is asking for.\r\nI do not see any issue here taking into account what RFC7950 is indicating in section 3 as Italo pointed out in other context (Optical impairment weekly call)\r\n",
+              "createdAt": "2024-02-07T09:46:34Z",
+              "updatedAt": "2024-02-07T09:46:34Z"
             }
           ]
         }
