@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-08T00:37:39.403043+00:00",
+  "timestamp": "2024-02-11T00:41:13.385883+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -478,7 +478,7 @@
       ],
       "body": "Hi, I've seen that we have in the draft the concept of \"part number\". RFC 8348 defines the parameter model-name to obtain this information. \r\n\r\n\"The vendor-specific model name identifier string\r\n              associated with this physical component.  The preferred\r\n              value is the customer-visible part number, which may be\r\n              printed on the component itself.\"\r\n\r\nAs we're changing the model of 8348. Is there any reason to include the \"part number\" instead of reusing model-name?",
       "createdAt": "2022-12-21T17:57:32Z",
-      "updatedAt": "2024-02-07T22:26:38Z",
+      "updatedAt": "2024-02-08T09:23:22Z",
       "closedAt": null,
       "comments": [
         {
@@ -529,6 +529,20 @@
           "body": "> \"The vendor-specific model name identifier string\r\n> associated with this physical component. The preferred\r\n> value is the customer-visible part number, which may be\r\n> printed on the component itself.\"\r\n\r\n@sergiobelotti @lana-wu I am a bit confused about whether your comments are referring to:\r\n1. use of \"part-number\" or \"model-name\" attribute for the component\r\n2. use of \"asset-id\" or \"model-name\" (or \"product-name\" for the NE\r\n\r\nI would suggest using this issue to discuss point 1 and issue #33 to discuss point 2\r\n\r\nRegarding point 1, I have understood from the previous calls that we have agreed to use \"part-number\" or \"model-name\" attribute for the component, pending confirmation with Victor and marked this issue as agreed accordingly\r\n\r\nPlease let me know if my understanding is not correct: if needed, we can discuss it again in the next calls (and mark this issue as under-discussion to avoid confusion)",
           "createdAt": "2024-02-07T22:23:51Z",
           "updatedAt": "2024-02-07T22:26:38Z"
+        },
+        {
+          "author": "lana-wu",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@italobusi @sergiobelotti \r\n I agree with the first point, instead of a new name \"assembly-id\u201c. \r\nFor the second point, I am not sure about \"asset-id\", which is NOT a vendor-specific but a customer defined tag.",
+          "createdAt": "2024-02-08T01:48:11Z",
+          "updatedAt": "2024-02-08T01:48:11Z"
+        },
+        {
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> > \"The vendor-specific model name identifier string\r\n> > associated with this physical component. The preferred\r\n> > value is the customer-visible part number, which may be\r\n> > printed on the component itself.\"\r\n> \r\n> @sergiobelotti @lana-wu I am a bit confused about whether your comments are referring to:\r\n> \r\n> 1. use of \"part-number\" or \"model-name\" attribute for the component\r\n> 2. use of \"asset-id\" or \"model-name\" (or \"product-name\" for the NE\r\n> \r\n> I would suggest using this issue to discuss point 1 and issue #33 to discuss point 2\r\n\r\n@italobusi: my comment is related to the above comment from Bo  https://github.com/ietf-ivy-wg/network-inventory-yang/issues/15#issuecomment-1918268011, and is referring to the first comment from Victor regarding modul-name vs. part-number.  I agree on your suggestion to separate the two issues .\r\n> \r\n> Regarding point 1, I have understood from the previous calls that we have agreed to use \"part-number\" or \"model-name\" attribute for the component, pending confirmation with Victor and marked this issue as agreed accordingly\r\n> \r\n> Please let me know if my understanding is not correct: if needed, we can discuss it again in the next calls (and mark this issue as under-discussion to avoid confusion)\r\n@italobusi : yes you understanding is correct \r\n\r\n",
+          "createdAt": "2024-02-08T09:23:21Z",
+          "updatedAt": "2024-02-08T09:23:21Z"
         }
       ]
     },
@@ -1041,7 +1055,7 @@
       ],
       "body": "Refine the name and description of the assembly-id attribute for the NE",
       "createdAt": "2024-01-25T12:57:05Z",
-      "updatedAt": "2024-02-07T22:16:50Z",
+      "updatedAt": "2024-02-08T14:33:00Z",
       "closedAt": null,
       "comments": [
         {
@@ -1061,9 +1075,30 @@
         {
           "author": "italobusi",
           "authorAssociation": "COLLABORATOR",
-          "body": "I am ok with \"model-name\" but I am also wondering what would be the difference between \"model-name\" and \"product-name\" ...\r\n\r\nIMHO, we have two options:\r\n1. remove \"asset-id\" and keep \"product-name\"\r\n2. remove both \"product-name\" and \"asset-id\" and add \"model-name\"\r\n\r\nI have a slight preference for option 1 but I can live with option 2 as well",
+          "body": "I am ok with \"model-name\" but I am also wondering what would be the difference between \"model-name\" and \"product-name\" ...\r\n\r\nIMHO, we have two options:\r\n1. remove the \"assembly-id\" attribute and keep the \"product-name\" attribute\r\n2. remove both the \"product-name\" and \"assembly-id\" attributes and add a new \"model-name\" attribute\r\n\r\nI have a slight preference for option 1 but I can live with option 2 as well",
           "createdAt": "2024-02-07T22:15:21Z",
-          "updatedAt": "2024-02-07T22:15:21Z"
+          "updatedAt": "2024-02-08T14:21:18Z"
+        },
+        {
+          "author": "lana-wu",
+          "authorAssociation": "COLLABORATOR",
+          "body": "It seems to me that \"asset-id\" is user-assigned tracking identifier for a component, or NE, or a rack , but \"product-name\" is vendor-specific? I think \"asset-id\" and \"product-name\" are not equivalent.\r\nInstead of \"assembly-id\", my suggestion is for \"product-name\".",
+          "createdAt": "2024-02-08T02:10:41Z",
+          "updatedAt": "2024-02-08T02:12:36Z"
+        },
+        {
+          "author": "dieterbeller",
+          "authorAssociation": "NONE",
+          "body": "It is still unclear to me what the NE assembly-id attribute should reflect. Is the meaning an assembly or shelf kit composed of the NE's main shelf and several necessary HW entities? If so, the assembly or shelf kit should be modeled like any other HW component and should have a least a part number and an optional name as it is an order-able item. Or, is it the intention to model the inventory data of all these components forming the assembly or shelf kit as separate items with their component specific inventory data?",
+          "createdAt": "2024-02-08T12:05:20Z",
+          "updatedAt": "2024-02-08T12:05:20Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> It seems to me that \"asset-id\" is user-assigned tracking identifier for a component, or NE, or a rack , but \"product-name\" is vendor-specific? I think \"asset-id\" and \"product-name\" are not equivalent. Instead of \"assembly-id\", my suggestion is for \"product-name\".\r\n\r\nSorry, I made a confusion between \"asset-id\" and \"assembly-id\" :(\r\n\r\nI have amended my comment as:\r\n\r\n> IMHO, we have two options:\r\n> \r\n> 1. remove the \"assembly-id\" attribute and keep the \"product-name\" attribute\r\n> 2. remove both the \"product-name\" and \"assembly-id\" attributes and add a new \"model-name\" attribute\r\n>\r\n> I have a slight preference for option 1 but I can live with option 2 as well\r\n\r\nTherefore, I agree with you to use \"product-name\" instead of \"assembly-id\"\r\n\r\nI also agree with you that the \"asset-id\" is a user-assigned identifier (as indicated in the current I-D) and that it applies to both components and NEs.\r\n\r\nHowever, I have noted that the \"asset-id\" for the NE is currently missing: I have #36 to track this issue",
+          "createdAt": "2024-02-08T14:22:33Z",
+          "updatedAt": "2024-02-08T14:33:00Z"
         }
       ]
     },
@@ -1080,6 +1115,25 @@
       "body": "It is clear that we do not have a tight enough definition of the boundary on the Ivy work. We need to understand what is in scope and what not. It is not practical to list all things in scope, so instead we need rules against which we can evaluate whether something is in scope or out of scope.\r\n\r\nClearly, there are some things we would all agree are in scope and other things we would agree are out of scope. Identifying the inherent properties of those things will help. \r\n\r\nBut there are things that we do not agree about and even if we had a complete definition, there are things on the boundary or that straddle the boundary.\r\n\r\nI emailed the list with some thoughts on how to organize things on a  \"map\" to help us define the boundary.\r\n\r\nI have attempted to sketch a map of things (over simplified in many places) that includes some questions and some sketch definitions. I would be happy to discuss this on our next call.\r\n[IvyBoundary.pptx](https://github.com/ietf-ivy-wg/network-inventory-yang/files/14139708/IvyBoundary.pptx)\r\n",
       "createdAt": "2024-02-02T12:03:16Z",
       "updatedAt": "2024-02-02T12:04:41Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 36,
+      "id": "I_kwDOKiDYo85-rc6Z",
+      "title": "Add \"asset-id\" attribute to the NE",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/36",
+      "state": "OPEN",
+      "author": "italobusi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "bug",
+        "needs discussion"
+      ],
+      "body": "The \"asset-id\" is a user-assigned identifier (as indicated in the current I-D) that applies to both components and NEs.\r\n\r\nHowever, it is currently defined only for the components.\r\n\r\nSee: https://github.com/ietf-ivy-wg/network-inventory-yang/issues/33#issuecomment-1933254876\r\n \r\nSee: https://github.com/ietf-ivy-wg/network-inventory-yang/issues/33#issuecomment-1934226018\r\n",
+      "createdAt": "2024-02-08T14:32:10Z",
+      "updatedAt": "2024-02-08T14:33:49Z",
       "closedAt": null,
       "comments": []
     }
