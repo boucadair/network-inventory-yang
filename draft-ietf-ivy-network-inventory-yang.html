@@ -16,13 +16,13 @@ that is application- and technology-agnostic.  This data model can be
 augmented with application-specific and technology-specific details
 in other, more specific network inventory data models. 
     " name="description">
-<meta content="xml2rfc 3.19.2" name="generator">
+<meta content="xml2rfc 3.19.4" name="generator">
 <meta content="next generation" name="keyword">
 <meta content="unicorn" name="keyword">
 <meta content="sparkling distributed ledger" name="keyword">
 <meta content="draft-ietf-ivy-network-inventory-yang-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.19.2
+  xml2rfc 3.19.4
     Python 3.11.6
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
@@ -1038,7 +1038,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Yu, et al.</td>
-<td class="center">Expires 8 August 2024</td>
+<td class="center">Expires 25 August 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1051,12 +1051,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-ivy-network-inventory-yang-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-02-05" class="published">5 February 2024</time>
+<time datetime="2024-02-22" class="published">22 February 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-08-08">8 August 2024</time></dd>
+<dd class="expires"><time datetime="2024-08-25">25 August 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1120,7 +1120,7 @@ in other, more specific network inventory data models.<a href="#section-abstract
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 8 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1200,9 +1200,6 @@ in other, more specific network inventory data models.<a href="#section-abstract
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5">
-                <p id="section-toc.1-1.2.2.5.1"><a href="#section-2.5" class="auto internal xref">2.5</a>.  <a href="#name-efficiency-issue" class="internal xref">Efficiency Issue</a></p>
-</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
@@ -1235,21 +1232,19 @@ in other, more specific network inventory data models.<a href="#section-abstract
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-appendix" class="internal xref">Appendix</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
-                <p id="section-toc.1-1.10.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-comparison-with-openconfig-" class="internal xref">Comparison With Openconfig-platform Data Model</a></p>
-</li>
-            </ul>
+            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-comparison-with-openconfig-" class="internal xref">Comparison With Openconfig-platform Data Model</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-efficiency-issue" class="internal xref">Efficiency Issue</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.13.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
+            <p id="section-toc.1-1.14.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1391,6 +1386,8 @@ of hardware, software, entitlement, and inventory topology mapping.<a href="#sec
             <p id="section-1.1-21.1.1">an interface on board<a href="#section-1.1-21.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
+<p id="section-1.1-22">Container:
+  &gt; Within this document , with the term "container" we consider an hardware component class capable of containing one or more removable physical entities, e.g. a slot in a chassis is containing a board.<a href="#section-1.1-22" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="requirements-notation">
@@ -1483,11 +1480,9 @@ elements) that can be managed as physical network elements from an
 inventory perspective. The data model for Network Element presented
 in this document uses a flat list of network element.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">The "ne-type" is defined as a YANG identity to describe the type of the network element. This document defines only the "physical-network-element" identity.<a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">The component definition is also generalized to support any type of
+<p id="section-2-3">The component definition is also generalized to support any types of
 component, such as hardware, software, or firmware.<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">The component "class" is defined as a union between the hardware
-class identity, defined in "iana-hardware", and the "non-hardware"
-identity, defined in this document.<a href="#section-2-4" class="pilcrow">¶</a></p>
+<p id="section-2-4">Different types of components can be distinguished by the class of component. The component "class" is defined as a union between the hardware class identity, defined in "iana-hardware", and the "non-hardware" identity, defined in this document. Attributes related to specific class of component can be found in the component-specific-info structure.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <p id="section-2-5">The identity definition of additional types of "ne-type" and "non-
 hardware" identity of component are outside the scope of this
 document and could be defined in application-specific or technology-
@@ -1690,7 +1685,7 @@ patch information, are outside the scope of this document and defined other docu
 <div class="alignLeft art-ascii-art art-text artwork" id="section-2.4.1-2">
 <pre>
   +--ro components
-     +--ro component* [uuid]
+     +--ro component* [component-id]
         ...................................
         +--ro parent-component-references
         |   +--ro component-reference* [index]
@@ -1711,11 +1706,21 @@ patch information, are outside the scope of this document and defined other docu
 <p id="section-2.4.2-1">According to the management requirements from operators, some important attributes are not defined in <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>. These attributes could be component-specific and are not suitable to define under the component list node. So, the model can be augmented with HW/SW specific-info-grouping containing attributes applicable to HW e.g. boards/slot or SW e.g. software-module/boot-loader component only.<a href="#section-2.4.2-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-ascii-art art-text artwork" id="section-2.4.2-2">
 <pre>
-  augment /ni:network-elements/ni:network-element:
-    +--rw virtual-ne-attributes
-  augment /ni:network-elements/ni:network-element/ni:components
-            /ni:component:
-    +--rw software-module-specific-info
++--rw components
+   +--rw component* [component-id]
+   |  +--rw component-id            string
+   .......................................
+   +--rw (component-class)?
+      +--:(chassis)
+      |  +--rw chassis-specific-info
+      +--:(container)
+      |  +--rw slot-specific-info
+      +--:(module)
+      |  +--rw board-specific-info
+      +--:(port)
+      |  +--rw port-specific-info
+      +--:(software)
+         +--rw software-specific-info
 </pre><a href="#section-2.4.2-2" class="pilcrow">¶</a>
 </div>
 </section>
@@ -1737,17 +1742,6 @@ patch information, are outside the scope of this document and defined other docu
 </div>
 </section>
 </div>
-</section>
-</div>
-<div id="efficiency-issue">
-<section id="section-2.5">
-        <h3 id="name-efficiency-issue">
-<a href="#section-2.5" class="section-number selfRef">2.5. </a><a href="#name-efficiency-issue" class="section-name selfRef">Efficiency Issue</a>
-        </h3>
-<p id="section-2.5-1">During  the integration with OSS in some operators, some efficiency/scalability concerns have been discovered when synchronizing network inventory data for big networks.  More discussions are needed to address these concerns.<a href="#section-2.5-1" class="pilcrow">¶</a></p>
-<p id="section-2.5-2">Considering that relational databases are widely used by traditional OSS systems and also by some network controllers, the inventory objects are most likely to be saved in different tables. With the model defined in current draft, when doing a full synchronization, network controller needs to convert all inventory objects of each NE into component objects and combine them together into a single list, and then construct a response and send to OSS or MDSC. The OSS or MDSC needs to classify the component list and divide them into different groups, in order to save them in different tables. The combining-regrouping steps are impacting the network controller &amp; OSS/MDSC processing, which may result in efficiency/scalability limitations in large scale networks.<a href="#section-2.5-2" class="pilcrow">¶</a></p>
-<p id="section-2.5-3">An alternative YANG model structure, which defines the inventory objects directly, instead of defining generic components, has also been analyzed. However, also with this model, there still could be some scalability limitations when synchronizing full inventory resources in large scale of networks. This scalability limitation is caused by the limited transmission capabilities of HTTP protocol. We think that this scalability limitation should be solved at protocol level rather than data model level.<a href="#section-2.5-3" class="pilcrow">¶</a></p>
-<p id="section-2.5-4">The model proposed by this draft is designed to be as generic as possible so to cover future special types of inventory objects that could be used in other technologies, that have not been identified yet. If the inventory objects were to be defined directly with fixed hierarchical relationships in YANG model, this new type of inventory objects needs to be manually defined, which is not a backward compatible change and therefore is not an acceptable approach for implementation. With a generic model, it is only needed to augment a new component class and extend some specific attributes for this new inventory component class, which is more flexible. We consider that this generic data model, enabling a flexible and backward compatible approach for other technologies, represents the main scope of this draft. Solution description to efficiency/scalability limitations mentioned above is considered as out-of-scope.<a href="#section-2.5-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1793,42 +1787,53 @@ and other models is illustrated in Figure 4.<a href="#section-3-1" class="pilcro
         <div class="alignLeft art-ascii-art art-text artwork" id="section-4-2.1">
 <pre>
 module: ietf-network-inventory
-  +--rw network-elements
-     +--rw network-element* [ne-id]
-        +--rw ne-id            string
-        +--rw ne-type?         identityref
-        +--rw uuid?            yang:uuid
-        +--rw name?            string
-        +--rw description?     string
-        +--rw alias?           string
-        +--rw hardware-rev?    string
-        +--rw software-rev?    string
-        +--rw mfg-name?        string
-        +--rw mfg-date?        yang:date-and-time
-        +--rw part-number?     string
-        +--rw serial-number?   string
-        +--rw product-name?    string
-        +--rw components
-           +--rw component* [component-id]
-              +--rw component-id            string
-              +--rw class                   union
-              +--rw uuid?                   yang:uuid
-              +--rw name?                   string
-              +--rw description?            string
-              +--rw alias?                  string
-              +--rw child-component-ref
-              +--rw parent-rel-pos?         int32
-              +--rw parent-component-ref
-              +--rw hardware-rev?           string
-              +--rw firmware-rev?           string
-              +--rw software-rev?           string
-              +--rw serial-num?             string
-              +--rw mfg-name?               string
-              +--rw part-number?            string
-              +--rw asset-id?               string
-              +--rw is-fru?                 boolean
-              +--rw mfg-date?               yang:date-and-time
-              +--rw uri*                    inet:uri
+   +--rw network-inventory
+      +--rw network-elements
+         +--rw network-element* [ne-id]
+            +--rw ne-id            string
+            +--ro ne-type?         identityref
+            +--ro uuid?            yang:uuid
+            +--rw name?            string
+            +--rw description?     string
+            +--rw alias?           string
+            +--ro hardware-rev?    string
+            +--ro software-rev?    string
+            +--ro mfg-name?        string
+            +--ro mfg-date?        yang:date-and-time
+            +--ro serial-number?   string
+            +--ro product-name?    string
+            +--rw components
+               +--rw component* [component-id]
+                  +--rw component-id              string
+                  +--ro class                     union
+                  +--ro uuid?                     yang:uuid
+                  +--rw name?                     string
+                  +--rw description?              string
+                  +--rw alias?                    string
+                  +--ro child-component-ref
+                  +--ro parent-rel-pos?           int32
+                  +--ro parent-component-ref
+                  +--ro hardware-rev?             string
+                  +--ro firmware-rev?             string
+                  +--ro software-rev?             string
+                  +--ro serial-num?               string
+                  +--ro mfg-name?                 string
+                  +--ro part-number?              string
+                  +--ro asset-id?                 string
+                  +--ro is-fru?                   boolean
+                  +--ro mfg-date?                 yang:date-and-time
+                  +--ro uri*                      inet:uri
+                  +--rw (component-class)?
+                     +--:(chassis)
+                     |  +--rw chassis-specific-info
+                     +--:(container)
+                     |  +--rw slot-specific-info
+                     +--:(module)
+                     |  +--rw board-specific-info
+                     +--:(port)
+                     |  +--rw port-specific-info
+                     +--:(software)
+                        +--rw software-specific-info
 </pre>
 </div>
 <figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
@@ -1855,7 +1860,7 @@ module ietf-network-inventory {
   import iana-hardware {
     prefix ianahw;
     reference
-      "https://www.iana.org/assignments/yang-parameters";
+    "https://www.iana.org/assignments/yang-parameters";
   }
 
   import ietf-yang-types {
@@ -1922,7 +1927,7 @@ module ietf-network-inventory {
   // RFC Ed.: update the date below with the date of RFC publication
   // and remove this note.
 
-  revision 2023-10-23 {
+  revision 2024-02-07 {
     description
       "Initial version";
     reference
@@ -1953,6 +1958,7 @@ module ietf-network-inventory {
       "A set of attributes which are common to all the entities
       (e.g., component, equipment room) defined in this module.";
     leaf uuid {
+      config false;
       type yang:uuid;
       description
         "Uniquely identifies an entity (e.g., component).";
@@ -1985,79 +1991,164 @@ module ietf-network-inventory {
     description
       "Attributes applicable to network elements.";
     leaf hardware-rev {
+      config false;
       type string;
       description
         "The vendor-specific hardware revision string for the NE.";
     }
     leaf software-rev {
+      config false;
       type string;
       description
         "The vendor-specific software revision string for the NE.";
     }
     leaf mfg-name {
+      config false;
       type string;
       description "The name of the manufacturer of this NE";
     }
     leaf mfg-date {
+      config false;
       type yang:date-and-time;
       description "The date of manufacturing of the NE.";
     }
-    leaf part-number {
-      type string;
-      description
-        "The vendor-specific model name identifier string associated
-         with this NE.  The preferred value is the customer-visible
-         part number, which may be printed on the NE itself.";
-    }
     leaf serial-number {
+      config false;
       type string;
       description
         "The vendor-specific serial number string for the NE";
     }
     leaf product-name {
+      config false;
       type string;
       description
         "indicates the vendor-spefic device type infomation.";
     }
   }
 
-  container network-elements {
+  grouping component-specific-info-grouping {
     description
-      "The top-level container for the list of network elements
-      within the network.";
-    list network-element {
-      key ne-id;
+      "Provide component-specific attributes for different
+      components.";
+    choice component-class {
       description
-        "The list of network elements within the network.";
-      leaf ne-id {
-        type string;
-        description
-          "Network Element (NE) identifier.";
-      }
-      leaf ne-type {
-        type identityref {
-          base ne-type;
-        }
-        default "ne-physical";
-        description
-          "The type of network element (NE).";
-      }
-      uses common-entity-attributes;
-      uses ne-specific-info-grouping;
-      container components {
-        description
-          "The top-level container for the list of components
-          within a network element.";
-        list component {
-          key component-id;
+        "This component-specific extension differs by different
+        component classes.";
+      case chassis {
+        container chassis-specific-info {
           description
-            "The list of components within a network element.";
-          leaf component-id {
-            type string;
-            description
-              "Component identifier";
+            "This container contains some attributes belong to
+            chassis only.";
+          uses chassis-specific-info-grouping;
+        }
+      }
+      case container {
+        container slot-specific-info {
+          description
+            "This container contains some attributes belong to
+            slot or sub-slot only.";
+          uses slot-specific-info-grouping;
+        }
+      }
+      case module {
+        container board-specific-info {
+          description
+            "This container contains some attributes belong to
+            board only.";
+          uses board-specific-info-grouping;
+        }
+      }
+      case port {
+        container port-specific-info {
+          description
+            "This container contains some attributes belong to
+            port only.";
+          uses port-specific-info-grouping;
+        }
+      }
+      case software {
+        container software-specific-info {
+          description
+            "This container contains some attributes belong to
+            software only.";
+
+          uses software-specific-info-grouping;
+        }
+      }
+    //TO BE ADDED: transceiver
+    }
+  }
+
+  grouping chassis-specific-info-grouping {
+  //To be enriched in the future.
+    description
+      "Specific attributes applicable to chassis only.";
+  }
+
+  grouping slot-specific-info-grouping {
+  //To be enriched in the future.
+    description
+      "Specific attributes applicable to slots only.";
+  }
+
+  grouping board-specific-info-grouping {
+  //To be enriched in the future.
+    description
+      "Specific attributes applicable to boards only.";
+  }
+
+  grouping port-specific-info-grouping {
+  //To be enriched in the future.
+    description
+      "Specific attributes applicable to ports only.";
+  }
+
+  grouping software-specific-info-grouping {
+  //To be enriched in the future.
+    description
+      "Specific attributes applicable to software only.";
+  }
+
+  grouping ne-info-grouping {
+    container network-elements {
+      description
+        "The top-level container for the list of network elements
+        within the network.";
+      list network-element {
+        key ne-id;
+        description
+          "The list of network elements within the network.";
+        leaf ne-id {
+          type string;
+          description
+            "Network Element (NE) identifier.";
+        }
+        leaf ne-type {
+          config false;
+          type identityref {
+            base ne-type;
           }
+          default "ne-physical";
+          description
+            "The type of network element (NE).";
+        }
+        uses common-entity-attributes;
+        uses ne-specific-info-grouping;
+        container components {
+          description
+            "The top-level container for the list of components
+            within a network element.";
+          list component {
+            key component-id;
+            description
+              "The list of components within a network element.";
+            leaf component-id {
+              type string;
+              description
+                "Component identifier";
+            }
           leaf class {
+            config false;
             type union {
               type identityref {
                 base ianahw:hardware-class;
@@ -2070,156 +2161,178 @@ module ietf-network-inventory {
             description
               "The type of the component.";
           }
-          uses common-entity-attributes;
-          container child-component-ref {
-            description
-              "A placeholder for adding the reference to child
-              component(s): to further discuss whether to define
-              a child leaf-list as RFC8348 or a list of
-              sub-components as openconfig-platform.";
-          }
-          leaf parent-rel-pos {
-            type int32 {
-              range "0 .. 2147483647";
+
+            uses common-entity-attributes;
+            container child-component-ref {
+              config false;
+              description
+                "A placeholder for adding the reference to child
+                component(s): to further discuss whether to define
+                a child leaf-list as RFC8348 or a list of
+                sub-components as openconfig-platform.";
             }
-            description
-              "The relative position with respect to the parent
-              component among all the sibling components.";
-            reference
-              "RFC 6933: Entity MIB (Version 4) -
-                        entPhysicalParentRelPos";
-          }
-          container parent-component-ref {
-            description
-              "A placeholder for adding the reference to parent
-              component(s): to further discuss whether to define
-              a parent attribute as RFC83458 or a
-              parent-component-references container as in
-              draft-ietf-ccamp-network-inventory-yang-02.";
-          }
-          leaf hardware-rev {
-            type string;
-            description
-              "The vendor-specific hardware revision string for the
-              component.  The preferred value is the hardware
-              revision identifier actually printed on the component
-              itself (if present).";
-            reference
-              "RFC 6933: Entity MIB (Version 4) -
-                        entPhysicalHardwareRev";
-          }
-          leaf firmware-rev {
-            type string;
-            description
-              "The vendor-specific firmware revision string for the
-              component.";
-            reference
-              "RFC 6933: Entity MIB (Version 4) -
-                        entPhysicalFirmwareRev";
-          }
-          leaf software-rev {
-            type string;
-            description
-              "The vendor-specific software revision string for the
-              component.";
-            reference
-              "RFC 6933: Entity MIB (Version 4) -
-                        entPhysicalSoftwareRev";
-          }
-          leaf serial-num {
-            type string;
-            description
-              "The vendor-specific serial number string for the
-              component.  The preferred value is the serial number
-              string actually printed on the component itself (if
-              present).";
-            reference
-              "RFC 6933: Entity MIB (Version 4) -
-              entPhysicalSerialNum";
-          }
-          leaf mfg-name {
-            type string;
-            description
-              "The name of the manufacturer of this physical
-              component.
-              The preferred value is the manufacturer name string
-              actually printed on the component itself (if present).
+            leaf parent-rel-pos {
+              config false;
+              type int32 {
+                range "0 .. 2147483647";
+              }
+              description
+                "The relative position with respect to the parent
+                component among all the sibling components.";
+              reference
+                "RFC 6933: Entity MIB (Version 4) -
+                          entPhysicalParentRelPos";
+            }
+            container parent-component-ref {
+              config false;
+              description
+                "A placeholder for adding the reference to parent
+                component(s): to further discuss whether to define
+                a parent attribute as RFC8348 or a
+                parent-component-references container as in
+                draft-ietf-ccamp-network-inventory-yang-02.";
+            }
+            leaf hardware-rev {
+              config false;
+              type string;
+              description
+                "The vendor-specific hardware revision string for the
+                component.  The preferred value is the hardware
+                revision identifier actually printed on the component
+                itself (if present).";
+              reference
+                "RFC 6933: Entity MIB (Version 4) -
+                          entPhysicalHardwareRev";
+            }
+            leaf firmware-rev {
+              config false;
+              type string;
+              description
+                "The vendor-specific firmware revision string for the
+                component.";
+              reference
+                "RFC 6933: Entity MIB (Version 4) -
+                          entPhysicalFirmwareRev";
+            }
+            leaf software-rev {
+              config false;
+              type string;
+              description
+                "The vendor-specific software revision string for the
+                component.";
+              reference
+                "RFC 6933: Entity MIB (Version 4) -
+                          entPhysicalSoftwareRev";
+            }
+            leaf serial-num {
+              config false;
+              type string;
+              description
+                "The vendor-specific serial number string for the
+                component.  The preferred value is the serial number
+                string actually printed on the component itself (if
+                present).";
+              reference
+                "RFC 6933: Entity MIB (Version 4) -
+                entPhysicalSerialNum";
+            }
+            leaf mfg-name {
+              config false;
+              type string;
+              description
+                "The name of the manufacturer of this physical
+                component.
+                The preferred value is the manufacturer name string
+                actually printed on the component itself (if present).
 
-              Note that comparisons between instances of the
-              'model-name', 'firmware-rev', 'software-rev', and
-              'serial-num' nodes are only meaningful amongst
-              components with the same value of 'mfg-name'.
+                Note that comparisons between instances of the
+                'model-name', 'firmware-rev', 'software-rev', and
+                'serial-num' nodes are only meaningful amongst
+                components with the same value of 'mfg-name'.
 
-              If the manufacturer name string associated with the
-              physical component is unknown to the server, then this
-              node is not instantiated.";
-            reference
-              "RFC 6933: Entity MIB (Version 4) -
-              entPhysicalMfgName";
-          }
-          leaf part-number {
-            type string;
-            description
-              "The vendor-specific model name identifier string
-              associated with this physical component.  The preferred
-              value is the customer-visible part number, which may be
-              printed on the component itself.
+                If the manufacturer name string associated with the
+                physical component is unknown to the server, then this
+                node is not instantiated.";
+              reference
+                "RFC 6933: Entity MIB (Version 4) -
+                entPhysicalMfgName";
+            }
+            leaf part-number {
+              config false;
+              type string;
+              description
+                "A code used to uniquely identify a type of component when
+                  referencing it, it could be visible and
+                  vendor-sepecific, usually it may be printed on the
+                  component itself.
 
-              If the model name string associated with the physical
-              component is unknown to the server, then this node is
-              not instantiated.";
-            reference
-              "RFC 6933: Entity MIB (Version 4) -
-              entPhysicalModelName";
-          }
-          leaf asset-id {
-            type string;
-            description
-              "This node is a user-assigned asset tracking
-              identifier for the component.
+                If the part number string associated with the physical
+                component is unknown to the server, then this node is
+                not instantiated.";
+              reference
+                "RFC 6933: Entity MIB (Version 4) -
+                entPhysicalModelName";
+            }
+            leaf asset-id {
+              config false;
+              type string;
+              description
+                "This node is a user-assigned asset tracking
+                identifier for the component.
 
-              A server implementation MAY map this leaf to the
-              entPhysicalAssetID MIB object.  Such an implementation
-              needs to use some mechanism to handle the differences
-              in size and characters allowed between this leaf and
-              entPhysicalAssetID.  The definition of such a
-              mechanism is outside the scope of this document.";
-            reference
-              "RFC 6933: Entity MIB (Version 4) -
-              entPhysicalAssetID";
-          }
-          leaf is-fru {
-            type boolean;
-            description
-              "This node indicates whether or not this component is
-              considered a 'field-replaceable unit' by the vendor.
-              If this node contains the value 'true', then this
-              component identifies a field-replaceable unit.
-              For all components that are permanently contained
-              within a field-replaceable unit, the value 'false'
-              should be returned for this node.";
-            reference
-              "RFC 6933: Entity MIB (Version 4) - entPhysicalIsFRU";
-          }
-          leaf mfg-date {
-            type yang:date-and-time;
-            description
-              "The date of manufacturing of the managed component.";
-            reference
-              "RFC 6933: Entity MIB (Version 4) -
-              entPhysicalMfgDate";
-          }
-          leaf-list uri {
-            type inet:uri;
-            description
-              "This node contains identification information about
-              the component.";
-            reference
-              "RFC 6933: Entity MIB (Version 4) - entPhysicalUris";
+                A server implementation MAY map this leaf to the
+                entPhysicalAssetID MIB object.  Such an implementation
+                needs to use some mechanism to handle the differences
+                in size and characters allowed between this leaf and
+                entPhysicalAssetID.  The definition of such a
+                mechanism is outside the scope of this document.";
+              reference
+                "RFC 6933: Entity MIB (Version 4) -
+                entPhysicalAssetID";
+            }
+            leaf is-fru {
+              config false;
+              type boolean;
+              description
+                "This node indicates whether or not this component is
+                considered a 'field-replaceable unit' by the vendor.
+                If this node contains the value 'true', then this
+                component identifies a field-replaceable unit.
+                For all components that are permanently contained
+                within a field-replaceable unit, the value 'false'
+                should be returned for this node.";
+              reference
+                "RFC 6933: Entity MIB (Version 4) - entPhysicalIsFRU";
+            }
+            leaf mfg-date {
+              config false;
+              type yang:date-and-time;
+              description
+                "The date of manufacturing of the managed component.";
+              reference
+                "RFC 6933: Entity MIB (Version 4) -
+                entPhysicalMfgDate";
+            }
+            leaf-list uri {
+              config false;
+              type inet:uri;
+              description
+                "This node contains identification information about
+                the component.";
+              reference
+                "RFC 6933: Entity MIB (Version 4) - entPhysicalUris";
+            }
+
+            uses component-specific-info-grouping;
           }
         }
       }
     }
+  }
+
+  container network-inventory {
+    uses ne-info-grouping;
+
   }
 }
 
@@ -2338,257 +2451,261 @@ module ietf-network-inventory {
 </section>
 </div>
 </section>
-<div id="appendix">
-<section id="appendix-A">
-      <h2 id="name-appendix">
-<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-appendix" class="section-name selfRef">Appendix</a>
-      </h2>
 <div id="comparison-with-openconfig-platform-data-model">
-<section id="appendix-A.1">
-        <h3 id="name-comparison-with-openconfig-">
-<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-comparison-with-openconfig-" class="section-name selfRef">Comparison With Openconfig-platform Data Model</a>
-        </h3>
-<p id="appendix-A.1-1">Since more and more devices can be managed by domain controller through OpenConfig, to ensure that our inventory data model can cover these devices' inventory data, we have compared our inventory data model with the "openconfig-platform" model which is the data model used to manage inventory information in OpenConfig.<a href="#appendix-A.1-1" class="pilcrow">¶</a></p>
-<p id="appendix-A.1-2">Openconfig-platform data model is NE-level and uses a generic component concept to describe its inner devices and containers, which is similar to "ietf-hardware" model in <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>. Since we have also reused the component concept of <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> in our inventory data model, we can compare the component's attributes between "openconfig-platform" and our model directly , which is stated below:<a href="#appendix-A.1-2" class="pilcrow">¶</a></p>
+<section id="appendix-A">
+      <h2 id="name-comparison-with-openconfig-">
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-comparison-with-openconfig-" class="section-name selfRef">Comparison With Openconfig-platform Data Model</a>
+      </h2>
+<p id="appendix-A-1">Since more and more devices can be managed by domain controller through OpenConfig, to ensure that our inventory data model can cover these devices' inventory data, we have compared our inventory data model with the "openconfig-platform" model which is the data model used to manage inventory information in OpenConfig.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-2">Openconfig-platform data model is NE-level and uses a generic component concept to describe its inner devices and containers, which is similar to "ietf-hardware" model in <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>. Since we have also reused the component concept of <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span> in our inventory data model, we can compare the component's attributes between "openconfig-platform" and our model directly , which is stated below:<a href="#appendix-A-2" class="pilcrow">¶</a></p>
 <span id="name-comparison-between-openconf"></span><div id="tab-oc">
 <table class="center" id="table-2">
-          <caption>
+        <caption>
 <a href="#table-2" class="selfRef">Table 2</a>:
 <a href="#name-comparison-between-openconf" class="selfRef">Comparison between openconfig platform and inventory data models</a>
-          </caption>
+        </caption>
 <thead>
-            <tr>
-              <th class="text-left" rowspan="1" colspan="1">Attributes in oc-platform</th>
-              <th class="text-left" rowspan="1" colspan="1">Attributes in our model</th>
-              <th class="text-left" rowspan="1" colspan="1">remark</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">name</td>
-              <td class="text-left" rowspan="1" colspan="1">name</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">type</td>
-              <td class="text-left" rowspan="1" colspan="1">class</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">id</td>
-              <td class="text-left" rowspan="1" colspan="1">uuid</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">location</td>
-              <td class="text-left" rowspan="1" colspan="1">location</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">description</td>
-              <td class="text-left" rowspan="1" colspan="1">description</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">mfg-name</td>
-              <td class="text-left" rowspan="1" colspan="1">mfg-name</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">mfg-date</td>
-              <td class="text-left" rowspan="1" colspan="1">mfg-date</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">hardware-version</td>
-              <td class="text-left" rowspan="1" colspan="1">hardware-rev</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">firmware-version</td>
-              <td class="text-left" rowspan="1" colspan="1">firmware-rev</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">software-version</td>
-              <td class="text-left" rowspan="1" colspan="1">software-rev</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">serial-no</td>
-              <td class="text-left" rowspan="1" colspan="1">serial-num</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">part-no</td>
-              <td class="text-left" rowspan="1" colspan="1">part-number</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">clei-code</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">TBD</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">removable</td>
-              <td class="text-left" rowspan="1" colspan="1">is-fru</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">oper-status</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">state data</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">empty</td>
-              <td class="text-left" rowspan="1" colspan="1">contained-child?</td>
-              <td class="text-left" rowspan="1" colspan="1">If there is no contained child, it is empty.</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">parent</td>
-              <td class="text-left" rowspan="1" colspan="1">parent-references</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">redundant-role</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">TBD</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">last-switchover-reason</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">state data</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">last-switchover-time</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">state data</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">last-reboot-reason</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">state data</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">last-reboot-time</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">state data</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">switchover-ready</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">state data</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">temperature</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">performance data</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">memory</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">performance data</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">allocated-power</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">TBD</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">used-power</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">TBD</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">pcie</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">alarm  data</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">properties</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">TBD</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">subcomponents</td>
-              <td class="text-left" rowspan="1" colspan="1">contained-child</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">chassis</td>
-              <td class="text-left" rowspan="1" colspan="1">chassis-specific-info</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">port</td>
-              <td class="text-left" rowspan="1" colspan="1">port-specific-info</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">power-supply</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">TBD</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">fan</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">Fan is considered as a specific board. And no need to define as a single component</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">fabric</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">TBD</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">storage</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">For Optical and IP technology, no need to manage storage on network element</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">cpu</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">For Optical and IP technology, no need to manage CPU on network element</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">integrated-circuit</td>
-              <td class="text-left" rowspan="1" colspan="1">board-specific-info</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">backplane</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">Backplane is considered as a part of board. And no need to define as a single component</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">software-module</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">TBD</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">controller-card</td>
-              <td class="text-left" rowspan="1" colspan="1"> </td>
-              <td class="text-left" rowspan="1" colspan="1">Controller card is considered as a specific functional board. And no need to define as a single component</td>
-            </tr>
-          </tbody>
-        </table>
+          <tr>
+            <th class="text-left" rowspan="1" colspan="1">Attributes in oc-platform</th>
+            <th class="text-left" rowspan="1" colspan="1">Attributes in our model</th>
+            <th class="text-left" rowspan="1" colspan="1">remark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">name</td>
+            <td class="text-left" rowspan="1" colspan="1">name</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">type</td>
+            <td class="text-left" rowspan="1" colspan="1">class</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">id</td>
+            <td class="text-left" rowspan="1" colspan="1">uuid</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">location</td>
+            <td class="text-left" rowspan="1" colspan="1">location</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">description</td>
+            <td class="text-left" rowspan="1" colspan="1">description</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">mfg-name</td>
+            <td class="text-left" rowspan="1" colspan="1">mfg-name</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">mfg-date</td>
+            <td class="text-left" rowspan="1" colspan="1">mfg-date</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">hardware-version</td>
+            <td class="text-left" rowspan="1" colspan="1">hardware-rev</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">firmware-version</td>
+            <td class="text-left" rowspan="1" colspan="1">firmware-rev</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">software-version</td>
+            <td class="text-left" rowspan="1" colspan="1">software-rev</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">serial-no</td>
+            <td class="text-left" rowspan="1" colspan="1">serial-num</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">part-no</td>
+            <td class="text-left" rowspan="1" colspan="1">part-number</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">clei-code</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">TBD</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">removable</td>
+            <td class="text-left" rowspan="1" colspan="1">is-fru</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">oper-status</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">state data</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">empty</td>
+            <td class="text-left" rowspan="1" colspan="1">contained-child?</td>
+            <td class="text-left" rowspan="1" colspan="1">If there is no contained child, it is empty.</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">parent</td>
+            <td class="text-left" rowspan="1" colspan="1">parent-references</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">redundant-role</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">TBD</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">last-switchover-reason</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">state data</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">last-switchover-time</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">state data</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">last-reboot-reason</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">state data</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">last-reboot-time</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">state data</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">switchover-ready</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">state data</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">temperature</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">performance data</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">memory</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">performance data</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">allocated-power</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">TBD</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">used-power</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">TBD</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">pcie</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">alarm  data</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">properties</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">TBD</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">subcomponents</td>
+            <td class="text-left" rowspan="1" colspan="1">contained-child</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">chassis</td>
+            <td class="text-left" rowspan="1" colspan="1">chassis-specific-info</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">port</td>
+            <td class="text-left" rowspan="1" colspan="1">port-specific-info</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">power-supply</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">TBD</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">fan</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">Fan is considered as a specific board. And no need to define as a single component</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">fabric</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">TBD</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">storage</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">For Optical and IP technology, no need to manage storage on network element</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">cpu</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">For Optical and IP technology, no need to manage CPU on network element</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">integrated-circuit</td>
+            <td class="text-left" rowspan="1" colspan="1">board-specific-info</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">backplane</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">Backplane is considered as a part of board. And no need to define as a single component</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">software-module</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">TBD</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">controller-card</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+            <td class="text-left" rowspan="1" colspan="1">Controller card is considered as a specific functional board. And no need to define as a single component</td>
+          </tr>
+        </tbody>
+      </table>
 </div>
-<p id="appendix-A.1-4">As it mentioned in <a href="#ne-component" class="auto internal xref">Section 2.3</a> that state data and performance data are out of scope of our data model, it is same for alarm data and it should be defined in some other alarm data models separately. And for some component specific structures in "openconfig-platform", we consider some of them can be contained by our existing structure, such as fan, backplane, and controller-card, while some others do not need to be included in this network inventory model like storage and cpu.<a href="#appendix-A.1-4" class="pilcrow">¶</a></p>
-<p id="appendix-A.1-5">Mostly, our inventory data model can cover the attributes from OpenConfig.<a href="#appendix-A.1-5" class="pilcrow">¶</a></p>
+<p id="appendix-A-4">As it mentioned in <a href="#ne-component" class="auto internal xref">Section 2.3</a> that state data and performance data are out of scope of our data model, it is same for alarm data and it should be defined in some other alarm data models separately. And for some component specific structures in "openconfig-platform", we consider some of them can be contained by our existing structure, such as fan, backplane, and controller-card, while some others do not need to be included in this network inventory model like storage and cpu.<a href="#appendix-A-4" class="pilcrow">¶</a></p>
+<p id="appendix-A-5">Mostly, our inventory data model can cover the attributes from OpenConfig.<a href="#appendix-A-5" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="efficiency-issue">
+<section id="appendix-B">
+      <h2 id="name-efficiency-issue">
+<a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-efficiency-issue" class="section-name selfRef">Efficiency Issue</a>
+      </h2>
+<p id="appendix-B-1">During  the integration with OSS in some operators, some efficiency/scalability concerns have been discovered when synchronizing network inventory data for big networks.  More discussions are needed to address these concerns.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<p id="appendix-B-2">Considering that relational databases are widely used by traditional OSS systems and also by some network controllers, the inventory objects are most likely to be saved in different tables. With the model defined in current draft, when doing a full synchronization, network controller needs to convert all inventory objects of each NE into component objects and combine them together into a single list, and then construct a response and send to OSS or MDSC. The OSS or MDSC needs to classify the component list and divide them into different groups, in order to save them in different tables. The combining-regrouping steps are impacting the network controller &amp; OSS/MDSC processing, which may result in efficiency/scalability limitations in large scale networks.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
+<p id="appendix-B-3">An alternative YANG model structure, which defines the inventory objects directly, instead of defining generic components, has also been analyzed. However, also with this model, there still could be some scalability limitations when synchronizing full inventory resources in large scale of networks. This scalability limitation is caused by the limited transmission capabilities of HTTP protocol. We think that this scalability limitation should be solved at protocol level rather than data model level.<a href="#appendix-B-3" class="pilcrow">¶</a></p>
+<p id="appendix-B-4">The model proposed by this draft is designed to be as generic as possible so to cover future special types of inventory objects that could be used in other technologies, that have not been identified yet. If the inventory objects were to be defined directly with fixed hierarchical relationships in YANG model, this new type of inventory objects needs to be manually defined, which is not a backward compatible change and therefore is not an acceptable approach for implementation. With a generic model, it is only needed to augment a new component class and extend some specific attributes for this new inventory component class, which is more flexible. We consider that this generic data model, enabling a flexible and backward compatible approach for other technologies, represents the main scope of this draft. Solution description to efficiency/scalability limitations mentioned above is considered as out-of-scope.<a href="#appendix-B-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="acknowledgments">
-<section id="appendix-B">
+<section id="appendix-C">
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-B-1">The authors of this document would like to thank the authors of <span>[<a href="#I-D.ietf-teas-actn-poi-applicability" class="cite xref">I-D.ietf-teas-actn-poi-applicability</a>]</span> for having identified the gap and requirements to trigger this work.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
-<p id="appendix-B-2">This document was prepared using kramdown.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
+<p id="appendix-C-1">The authors of this document would like to thank the authors of <span>[<a href="#I-D.ietf-teas-actn-poi-applicability" class="cite xref">I-D.ietf-teas-actn-poi-applicability</a>]</span> for having identified the gap and requirements to trigger this work.<a href="#appendix-C-1" class="pilcrow">¶</a></p>
+<p id="appendix-C-2">This document was prepared using kramdown.<a href="#appendix-C-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="contributors">
-<section id="appendix-C">
+<section id="appendix-D">
       <h2 id="name-contributors">
 <a href="#name-contributors" class="section-name selfRef">Contributors</a>
       </h2>
@@ -2646,7 +2763,7 @@ module ietf-network-inventory {
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-D">
+<section id="appendix-E">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>

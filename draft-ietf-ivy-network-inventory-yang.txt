@@ -5,14 +5,14 @@
 Network Working Group                                              C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                              S. Belotti
-Expires: 8 August 2024                                             Nokia
+Expires: 25 August 2024                                            Nokia
                                                           J.-F. Bouquier
                                                                 Vodafone
                                                             F. Peruzzini
                                                                      TIM
                                                                P. Bedard
                                                                    Cisco
-                                                         5 February 2024
+                                                        22 February 2024
 
 
                 A YANG Data Model for Network Inventory
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 August 2024.
+   This Internet-Draft will expire on 25 August 2024.
 
 Copyright Notice
 
@@ -86,7 +86,6 @@ Table of Contents
        2.4.1.  New Parent Identifiers' Reference
        2.4.2.  Component-Specific Info Design
        2.4.3.  Part Number
-     2.5.  Efficiency Issue
    3.  Extending Network Inventory
    4.  Network Inventory Tree Diagram
    5.  YANG Data Model for Network Inventory
@@ -96,8 +95,8 @@ Table of Contents
    9.  References
      9.1.  Normative References
      9.2.  Informative References
-   Appendix A.  Appendix
-     A.1.  Comparison With Openconfig-platform Data Model
+   Appendix A.  Comparison With Openconfig-platform Data Model
+   Appendix B.  Efficiency Issue
    Acknowledgments
    Contributors
    Authors' Addresses
@@ -250,6 +249,11 @@ Table of Contents
 
       an interface on board
 
+   Container: > Within this document , with the term "container" we
+   consider an hardware component class capable of containing one or
+   more removable physical entities, e.g. a slot in a chassis is
+   containing a board.
+
 1.2.  Requirements Notation
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -299,12 +303,15 @@ Table of Contents
    the network element.  This document defines only the "physical-
    network-element" identity.
 
-   The component definition is also generalized to support any type of
+   The component definition is also generalized to support any types of
    component, such as hardware, software, or firmware.
 
-   The component "class" is defined as a union between the hardware
-   class identity, defined in "iana-hardware", and the "non-hardware"
-   identity, defined in this document.
+   Different types of components can be distinguished by the class of
+   component.  The component "class" is defined as a union between the
+   hardware class identity, defined in "iana-hardware", and the "non-
+   hardware" identity, defined in this document.  Attributes related to
+   specific class of component can be found in the component-specific-
+   info structure.
 
    The identity definition of additional types of "ne-type" and "non-
    hardware" identity of component are outside the scope of this
@@ -519,7 +526,7 @@ Table of Contents
    hierarchical parent components' identifier references.
 
      +--ro components
-        +--ro component* [uuid]
+        +--ro component* [component-id]
            ...................................
            +--ro parent-component-references
            |   +--ro component-reference* [index]
@@ -542,11 +549,21 @@ Table of Contents
    specific-info-grouping containing attributes applicable to HW e.g.
    boards/slot or SW e.g. software-module/boot-loader component only.
 
-     augment /ni:network-elements/ni:network-element:
-       +--rw virtual-ne-attributes
-     augment /ni:network-elements/ni:network-element/ni:components
-               /ni:component:
-       +--rw software-module-specific-info
+   +--rw components
+      +--rw component* [component-id]
+      |  +--rw component-id            string
+      .......................................
+      +--rw (component-class)?
+         +--:(chassis)
+         |  +--rw chassis-specific-info
+         +--:(container)
+         |  +--rw slot-specific-info
+         +--:(module)
+         |  +--rw board-specific-info
+         +--:(port)
+         |  +--rw port-specific-info
+         +--:(software)
+            +--rw software-specific-info
 
 2.4.3.  Part Number
 
@@ -560,50 +577,6 @@ Table of Contents
            ...................................
            +--ro part-number?           string
            ...................................
-
-2.5.  Efficiency Issue
-
-   During the integration with OSS in some operators, some efficiency/
-   scalability concerns have been discovered when synchronizing network
-   inventory data for big networks.  More discussions are needed to
-   address these concerns.
-
-   Considering that relational databases are widely used by traditional
-   OSS systems and also by some network controllers, the inventory
-   objects are most likely to be saved in different tables.  With the
-   model defined in current draft, when doing a full synchronization,
-   network controller needs to convert all inventory objects of each NE
-   into component objects and combine them together into a single list,
-   and then construct a response and send to OSS or MDSC.  The OSS or
-   MDSC needs to classify the component list and divide them into
-   different groups, in order to save them in different tables.  The
-   combining-regrouping steps are impacting the network controller &
-   OSS/MDSC processing, which may result in efficiency/scalability
-   limitations in large scale networks.
-
-   An alternative YANG model structure, which defines the inventory
-   objects directly, instead of defining generic components, has also
-   been analyzed.  However, also with this model, there still could be
-   some scalability limitations when synchronizing full inventory
-   resources in large scale of networks.  This scalability limitation is
-   caused by the limited transmission capabilities of HTTP protocol.  We
-   think that this scalability limitation should be solved at protocol
-   level rather than data model level.
-
-   The model proposed by this draft is designed to be as generic as
-   possible so to cover future special types of inventory objects that
-   could be used in other technologies, that have not been identified
-   yet.  If the inventory objects were to be defined directly with fixed
-   hierarchical relationships in YANG model, this new type of inventory
-   objects needs to be manually defined, which is not a backward
-   compatible change and therefore is not an acceptable approach for
-   implementation.  With a generic model, it is only needed to augment a
-   new component class and extend some specific attributes for this new
-   inventory component class, which is more flexible.  We consider that
-   this generic data model, enabling a flexible and backward compatible
-   approach for other technologies, represents the main scope of this
-   draft.  Solution description to efficiency/scalability limitations
-   mentioned above is considered as out-of-scope.
 
 3.  Extending Network Inventory
 
@@ -634,42 +607,53 @@ Table of Contents
    in module "ietf-network-inventory" (Section 5).
 
    module: ietf-network-inventory
-     +--rw network-elements
-        +--rw network-element* [ne-id]
-           +--rw ne-id            string
-           +--rw ne-type?         identityref
-           +--rw uuid?            yang:uuid
-           +--rw name?            string
-           +--rw description?     string
-           +--rw alias?           string
-           +--rw hardware-rev?    string
-           +--rw software-rev?    string
-           +--rw mfg-name?        string
-           +--rw mfg-date?        yang:date-and-time
-           +--rw part-number?     string
-           +--rw serial-number?   string
-           +--rw product-name?    string
-           +--rw components
-              +--rw component* [component-id]
-                 +--rw component-id            string
-                 +--rw class                   union
-                 +--rw uuid?                   yang:uuid
-                 +--rw name?                   string
-                 +--rw description?            string
-                 +--rw alias?                  string
-                 +--rw child-component-ref
-                 +--rw parent-rel-pos?         int32
-                 +--rw parent-component-ref
-                 +--rw hardware-rev?           string
-                 +--rw firmware-rev?           string
-                 +--rw software-rev?           string
-                 +--rw serial-num?             string
-                 +--rw mfg-name?               string
-                 +--rw part-number?            string
-                 +--rw asset-id?               string
-                 +--rw is-fru?                 boolean
-                 +--rw mfg-date?               yang:date-and-time
-                 +--rw uri*                    inet:uri
+      +--rw network-inventory
+         +--rw network-elements
+            +--rw network-element* [ne-id]
+               +--rw ne-id            string
+               +--ro ne-type?         identityref
+               +--ro uuid?            yang:uuid
+               +--rw name?            string
+               +--rw description?     string
+               +--rw alias?           string
+               +--ro hardware-rev?    string
+               +--ro software-rev?    string
+               +--ro mfg-name?        string
+               +--ro mfg-date?        yang:date-and-time
+               +--ro serial-number?   string
+               +--ro product-name?    string
+               +--rw components
+                  +--rw component* [component-id]
+                     +--rw component-id              string
+                     +--ro class                     union
+                     +--ro uuid?                     yang:uuid
+                     +--rw name?                     string
+                     +--rw description?              string
+                     +--rw alias?                    string
+                     +--ro child-component-ref
+                     +--ro parent-rel-pos?           int32
+                     +--ro parent-component-ref
+                     +--ro hardware-rev?             string
+                     +--ro firmware-rev?             string
+                     +--ro software-rev?             string
+                     +--ro serial-num?               string
+                     +--ro mfg-name?                 string
+                     +--ro part-number?              string
+                     +--ro asset-id?                 string
+                     +--ro is-fru?                   boolean
+                     +--ro mfg-date?                 yang:date-and-time
+                     +--ro uri*                      inet:uri
+                     +--rw (component-class)?
+                        +--:(chassis)
+                        |  +--rw chassis-specific-info
+                        +--:(container)
+                        |  +--rw slot-specific-info
+                        +--:(module)
+                        |  +--rw board-specific-info
+                        +--:(port)
+                        |  +--rw port-specific-info
+                        +--:(software)
+                           +--rw software-specific-info
 
                   Figure 2: Network inventory tree diagram
 
@@ -684,7 +668,7 @@ Table of Contents
      import iana-hardware {
        prefix ianahw;
        reference
-         "https://www.iana.org/assignments/yang-parameters";
+       "https://www.iana.org/assignments/yang-parameters";
      }
 
      import ietf-yang-types {
@@ -751,7 +735,7 @@ Table of Contents
      // RFC Ed.: update the date below with the date of RFC publication
      // and remove this note.
 
-     revision 2023-10-23 {
+     revision 2024-02-07 {
        description
          "Initial version";
        reference
@@ -782,6 +766,7 @@ Table of Contents
          "A set of attributes which are common to all the entities
          (e.g., component, equipment room) defined in this module.";
        leaf uuid {
+         config false;
          type yang:uuid;
          description
            "Uniquely identifies an entity (e.g., component).";
@@ -814,79 +799,164 @@ Table of Contents
        description
          "Attributes applicable to network elements.";
        leaf hardware-rev {
+         config false;
          type string;
          description
            "The vendor-specific hardware revision string for the NE.";
        }
        leaf software-rev {
+         config false;
          type string;
          description
            "The vendor-specific software revision string for the NE.";
        }
        leaf mfg-name {
+         config false;
          type string;
          description "The name of the manufacturer of this NE";
        }
        leaf mfg-date {
+         config false;
          type yang:date-and-time;
          description "The date of manufacturing of the NE.";
        }
-       leaf part-number {
-         type string;
-         description
-           "The vendor-specific model name identifier string associated
-            with this NE.  The preferred value is the customer-visible
-            part number, which may be printed on the NE itself.";
-       }
        leaf serial-number {
+         config false;
          type string;
          description
            "The vendor-specific serial number string for the NE";
        }
        leaf product-name {
+         config false;
          type string;
          description
            "indicates the vendor-spefic device type infomation.";
        }
      }
 
-     container network-elements {
+     grouping component-specific-info-grouping {
        description
-         "The top-level container for the list of network elements
-         within the network.";
-       list network-element {
-         key ne-id;
+         "Provide component-specific attributes for different
+         components.";
+       choice component-class {
          description
-           "The list of network elements within the network.";
-         leaf ne-id {
-           type string;
-           description
-             "Network Element (NE) identifier.";
-         }
-         leaf ne-type {
-           type identityref {
-             base ne-type;
-           }
-           default "ne-physical";
-           description
-             "The type of network element (NE).";
-         }
-         uses common-entity-attributes;
-         uses ne-specific-info-grouping;
-         container components {
-           description
-             "The top-level container for the list of components
-             within a network element.";
-           list component {
-             key component-id;
+           "This component-specific extension differs by different
+           component classes.";
+         case chassis {
+           container chassis-specific-info {
              description
-               "The list of components within a network element.";
-             leaf component-id {
-               type string;
-               description
-                 "Component identifier";
+               "This container contains some attributes belong to
+               chassis only.";
+             uses chassis-specific-info-grouping;
+           }
+         }
+         case container {
+           container slot-specific-info {
+             description
+               "This container contains some attributes belong to
+               slot or sub-slot only.";
+             uses slot-specific-info-grouping;
+           }
+         }
+         case module {
+           container board-specific-info {
+             description
+               "This container contains some attributes belong to
+               board only.";
+             uses board-specific-info-grouping;
+           }
+         }
+         case port {
+           container port-specific-info {
+             description
+               "This container contains some attributes belong to
+               port only.";
+             uses port-specific-info-grouping;
+           }
+         }
+         case software {
+           container software-specific-info {
+             description
+               "This container contains some attributes belong to
+               software only.";
+
+             uses software-specific-info-grouping;
+           }
+         }
+       //TO BE ADDED: transceiver
+       }
+     }
+
+     grouping chassis-specific-info-grouping {
+     //To be enriched in the future.
+       description
+         "Specific attributes applicable to chassis only.";
+     }
+
+     grouping slot-specific-info-grouping {
+     //To be enriched in the future.
+       description
+         "Specific attributes applicable to slots only.";
+     }
+
+     grouping board-specific-info-grouping {
+     //To be enriched in the future.
+       description
+         "Specific attributes applicable to boards only.";
+     }
+
+     grouping port-specific-info-grouping {
+     //To be enriched in the future.
+       description
+         "Specific attributes applicable to ports only.";
+     }
+
+     grouping software-specific-info-grouping {
+     //To be enriched in the future.
+       description
+         "Specific attributes applicable to software only.";
+     }
+
+     grouping ne-info-grouping {
+       container network-elements {
+         description
+           "The top-level container for the list of network elements
+           within the network.";
+         list network-element {
+           key ne-id;
+           description
+             "The list of network elements within the network.";
+           leaf ne-id {
+             type string;
+             description
+               "Network Element (NE) identifier.";
+           }
+           leaf ne-type {
+             config false;
+             type identityref {
+               base ne-type;
              }
+             default "ne-physical";
+             description
+               "The type of network element (NE).";
+           }
+           uses common-entity-attributes;
+           uses ne-specific-info-grouping;
+           container components {
+             description
+               "The top-level container for the list of components
+               within a network element.";
+             list component {
+               key component-id;
+               description
+                 "The list of components within a network element.";
+               leaf component-id {
+                 type string;
+                 description
+                   "Component identifier";
+               }
              leaf class {
+               config false;
                type union {
                  type identityref {
                    base ianahw:hardware-class;
@@ -899,156 +969,178 @@ Table of Contents
                description
                  "The type of the component.";
              }
-             uses common-entity-attributes;
-             container child-component-ref {
-               description
-                 "A placeholder for adding the reference to child
-                 component(s): to further discuss whether to define
-                 a child leaf-list as RFC8348 or a list of
-                 sub-components as openconfig-platform.";
-             }
-             leaf parent-rel-pos {
-               type int32 {
-                 range "0 .. 2147483647";
+
+               uses common-entity-attributes;
+               container child-component-ref {
+                 config false;
+                 description
+                   "A placeholder for adding the reference to child
+                   component(s): to further discuss whether to define
+                   a child leaf-list as RFC8348 or a list of
+                   sub-components as openconfig-platform.";
                }
-               description
-                 "The relative position with respect to the parent
-                 component among all the sibling components.";
-               reference
-                 "RFC 6933: Entity MIB (Version 4) -
-                           entPhysicalParentRelPos";
-             }
-             container parent-component-ref {
-               description
-                 "A placeholder for adding the reference to parent
-                 component(s): to further discuss whether to define
-                 a parent attribute as RFC83458 or a
-                 parent-component-references container as in
-                 draft-ietf-ccamp-network-inventory-yang-02.";
-             }
-             leaf hardware-rev {
-               type string;
-               description
-                 "The vendor-specific hardware revision string for the
-                 component.  The preferred value is the hardware
-                 revision identifier actually printed on the component
-                 itself (if present).";
-               reference
-                 "RFC 6933: Entity MIB (Version 4) -
-                           entPhysicalHardwareRev";
-             }
-             leaf firmware-rev {
-               type string;
-               description
-                 "The vendor-specific firmware revision string for the
-                 component.";
-               reference
-                 "RFC 6933: Entity MIB (Version 4) -
-                           entPhysicalFirmwareRev";
-             }
-             leaf software-rev {
-               type string;
-               description
-                 "The vendor-specific software revision string for the
-                 component.";
-               reference
-                 "RFC 6933: Entity MIB (Version 4) -
-                           entPhysicalSoftwareRev";
-             }
-             leaf serial-num {
-               type string;
-               description
-                 "The vendor-specific serial number string for the
-                 component.  The preferred value is the serial number
-                 string actually printed on the component itself (if
-                 present).";
-               reference
-                 "RFC 6933: Entity MIB (Version 4) -
-                 entPhysicalSerialNum";
-             }
-             leaf mfg-name {
-               type string;
-               description
-                 "The name of the manufacturer of this physical
-                 component.
-                 The preferred value is the manufacturer name string
-                 actually printed on the component itself (if present).
+               leaf parent-rel-pos {
+                 config false;
+                 type int32 {
+                   range "0 .. 2147483647";
+                 }
+                 description
+                   "The relative position with respect to the parent
+                   component among all the sibling components.";
+                 reference
+                   "RFC 6933: Entity MIB (Version 4) -
+                             entPhysicalParentRelPos";
+               }
+               container parent-component-ref {
+                 config false;
+                 description
+                   "A placeholder for adding the reference to parent
+                   component(s): to further discuss whether to define
+                   a parent attribute as RFC8348 or a
+                   parent-component-references container as in
+                   draft-ietf-ccamp-network-inventory-yang-02.";
+               }
+               leaf hardware-rev {
+                 config false;
+                 type string;
+                 description
+                   "The vendor-specific hardware revision string for the
+                   component.  The preferred value is the hardware
+                   revision identifier actually printed on the component
+                   itself (if present).";
+                 reference
+                   "RFC 6933: Entity MIB (Version 4) -
+                             entPhysicalHardwareRev";
+               }
+               leaf firmware-rev {
+                 config false;
+                 type string;
+                 description
+                   "The vendor-specific firmware revision string for the
+                   component.";
+                 reference
+                   "RFC 6933: Entity MIB (Version 4) -
+                             entPhysicalFirmwareRev";
+               }
+               leaf software-rev {
+                 config false;
+                 type string;
+                 description
+                   "The vendor-specific software revision string for the
+                   component.";
+                 reference
+                   "RFC 6933: Entity MIB (Version 4) -
+                             entPhysicalSoftwareRev";
+               }
+               leaf serial-num {
+                 config false;
+                 type string;
+                 description
+                   "The vendor-specific serial number string for the
+                   component.  The preferred value is the serial number
+                   string actually printed on the component itself (if
+                   present).";
+                 reference
+                   "RFC 6933: Entity MIB (Version 4) -
+                   entPhysicalSerialNum";
+               }
+               leaf mfg-name {
+                 config false;
+                 type string;
+                 description
+                   "The name of the manufacturer of this physical
+                   component.
+                   The preferred value is the manufacturer name string
+                   actually printed on the component itself (if present).
 
-                 Note that comparisons between instances of the
-                 'model-name', 'firmware-rev', 'software-rev', and
-                 'serial-num' nodes are only meaningful amongst
-                 components with the same value of 'mfg-name'.
+                   Note that comparisons between instances of the
+                   'model-name', 'firmware-rev', 'software-rev', and
+                   'serial-num' nodes are only meaningful amongst
+                   components with the same value of 'mfg-name'.
 
-                 If the manufacturer name string associated with the
-                 physical component is unknown to the server, then this
-                 node is not instantiated.";
-               reference
-                 "RFC 6933: Entity MIB (Version 4) -
-                 entPhysicalMfgName";
-             }
-             leaf part-number {
-               type string;
-               description
-                 "The vendor-specific model name identifier string
-                 associated with this physical component.  The preferred
-                 value is the customer-visible part number, which may be
-                 printed on the component itself.
+                   If the manufacturer name string associated with the
+                   physical component is unknown to the server, then this
+                   node is not instantiated.";
+                 reference
+                   "RFC 6933: Entity MIB (Version 4) -
+                   entPhysicalMfgName";
+               }
+               leaf part-number {
+                 config false;
+                 type string;
+                 description
+                   "A code used to uniquely identify a type of component when
+                     referencing it, it could be visible and
+                     vendor-sepecific, usually it may be printed on the
+                     component itself.
 
-                 If the model name string associated with the physical
-                 component is unknown to the server, then this node is
-                 not instantiated.";
-               reference
-                 "RFC 6933: Entity MIB (Version 4) -
-                 entPhysicalModelName";
-             }
-             leaf asset-id {
-               type string;
-               description
-                 "This node is a user-assigned asset tracking
-                 identifier for the component.
+                   If the part number string associated with the physical
+                   component is unknown to the server, then this node is
+                   not instantiated.";
+                 reference
+                   "RFC 6933: Entity MIB (Version 4) -
+                   entPhysicalModelName";
+               }
+               leaf asset-id {
+                 config false;
+                 type string;
+                 description
+                   "This node is a user-assigned asset tracking
+                   identifier for the component.
 
-                 A server implementation MAY map this leaf to the
-                 entPhysicalAssetID MIB object.  Such an implementation
-                 needs to use some mechanism to handle the differences
-                 in size and characters allowed between this leaf and
-                 entPhysicalAssetID.  The definition of such a
-                 mechanism is outside the scope of this document.";
-               reference
-                 "RFC 6933: Entity MIB (Version 4) -
-                 entPhysicalAssetID";
-             }
-             leaf is-fru {
-               type boolean;
-               description
-                 "This node indicates whether or not this component is
-                 considered a 'field-replaceable unit' by the vendor.
-                 If this node contains the value 'true', then this
-                 component identifies a field-replaceable unit.
-                 For all components that are permanently contained
-                 within a field-replaceable unit, the value 'false'
-                 should be returned for this node.";
-               reference
-                 "RFC 6933: Entity MIB (Version 4) - entPhysicalIsFRU";
-             }
-             leaf mfg-date {
-               type yang:date-and-time;
-               description
-                 "The date of manufacturing of the managed component.";
-               reference
-                 "RFC 6933: Entity MIB (Version 4) -
-                 entPhysicalMfgDate";
-             }
-             leaf-list uri {
-               type inet:uri;
-               description
-                 "This node contains identification information about
-                 the component.";
-               reference
-                 "RFC 6933: Entity MIB (Version 4) - entPhysicalUris";
+                   A server implementation MAY map this leaf to the
+                   entPhysicalAssetID MIB object.  Such an implementation
+                   needs to use some mechanism to handle the differences
+                   in size and characters allowed between this leaf and
+                   entPhysicalAssetID.  The definition of such a
+                   mechanism is outside the scope of this document.";
+                 reference
+                   "RFC 6933: Entity MIB (Version 4) -
+                   entPhysicalAssetID";
+               }
+               leaf is-fru {
+                 config false;
+                 type boolean;
+                 description
+                   "This node indicates whether or not this component is
+                   considered a 'field-replaceable unit' by the vendor.
+                   If this node contains the value 'true', then this
+                   component identifies a field-replaceable unit.
+                   For all components that are permanently contained
+                   within a field-replaceable unit, the value 'false'
+                   should be returned for this node.";
+                 reference
+                   "RFC 6933: Entity MIB (Version 4) - entPhysicalIsFRU";
+               }
+               leaf mfg-date {
+                 config false;
+                 type yang:date-and-time;
+                 description
+                   "The date of manufacturing of the managed component.";
+                 reference
+                   "RFC 6933: Entity MIB (Version 4) -
+                   entPhysicalMfgDate";
+               }
+               leaf-list uri {
+                 config false;
+                 type inet:uri;
+                 description
+                   "This node contains identification information about
+                   the component.";
+                 reference
+                   "RFC 6933: Entity MIB (Version 4) - entPhysicalUris";
+               }
+
+               uses component-specific-info-grouping;
              }
            }
          }
        }
+     }
+
+     container network-inventory {
+       uses ne-info-grouping;
+
      }
    }
    <CODE ENDS>
@@ -1150,9 +1242,7 @@ Table of Contents
               Management with YANG", RFC 8969, DOI 10.17487/RFC8969,
               January 2021, <https://www.rfc-editor.org/rfc/rfc8969>.
 
-Appendix A.  Appendix
-
-A.1.  Comparison With Openconfig-platform Data Model
+Appendix A.  Comparison With Openconfig-platform Data Model
 
    Since more and more devices can be managed by domain controller
    through OpenConfig, to ensure that our inventory data model can cover
@@ -1301,6 +1391,50 @@ A.1.  Comparison With Openconfig-platform Data Model
 
    Mostly, our inventory data model can cover the attributes from
    OpenConfig.
+
+Appendix B.  Efficiency Issue
+
+   During the integration with OSS in some operators, some efficiency/
+   scalability concerns have been discovered when synchronizing network
+   inventory data for big networks.  More discussions are needed to
+   address these concerns.
+
+   Considering that relational databases are widely used by traditional
+   OSS systems and also by some network controllers, the inventory
+   objects are most likely to be saved in different tables.  With the
+   model defined in current draft, when doing a full synchronization,
+   network controller needs to convert all inventory objects of each NE
+   into component objects and combine them together into a single list,
+   and then construct a response and send to OSS or MDSC.  The OSS or
+   MDSC needs to classify the component list and divide them into
+   different groups, in order to save them in different tables.  The
+   combining-regrouping steps are impacting the network controller &
+   OSS/MDSC processing, which may result in efficiency/scalability
+   limitations in large scale networks.
+
+   An alternative YANG model structure, which defines the inventory
+   objects directly, instead of defining generic components, has also
+   been analyzed.  However, also with this model, there still could be
+   some scalability limitations when synchronizing full inventory
+   resources in large scale of networks.  This scalability limitation is
+   caused by the limited transmission capabilities of HTTP protocol.  We
+   think that this scalability limitation should be solved at protocol
+   level rather than data model level.
+
+   The model proposed by this draft is designed to be as generic as
+   possible so to cover future special types of inventory objects that
+   could be used in other technologies, that have not been identified
+   yet.  If the inventory objects were to be defined directly with fixed
+   hierarchical relationships in YANG model, this new type of inventory
+   objects needs to be manually defined, which is not a backward
+   compatible change and therefore is not an acceptable approach for
+   implementation.  With a generic model, it is only needed to augment a
+   new component class and extend some specific attributes for this new
+   inventory component class, which is more flexible.  We consider that
+   this generic data model, enabling a flexible and backward compatible
+   approach for other technologies, represents the main scope of this
+   draft.  Solution description to efficiency/scalability limitations
+   mentioned above is considered as out-of-scope.
 
 Acknowledgments
 
