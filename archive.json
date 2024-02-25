@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-22T00:37:36.186060+00:00",
+  "timestamp": "2024-02-25T00:40:42.981968+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1321,24 +1321,26 @@
       "id": "PR_kwDOKiDYo85lLAGr",
       "title": "update the data model according recent discussion",
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/pull/34",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "YuChaode",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "1. add a new root;\r\n2. remove part-number from NE;\r\n3. add component-specific structure;\r\n4. change the configuration capabilities of attributes;\r\n5. add text proposal from Sergio about container;\r\n6. move the section of scalability issue to appendix;",
       "createdAt": "2024-01-26T15:57:02Z",
-      "updatedAt": "2024-02-21T07:59:16Z",
+      "updatedAt": "2024-02-22T13:06:23Z",
       "baseRepository": "ietf-ivy-wg/network-inventory-yang",
       "baseRefName": "main",
       "baseRefOid": "9a80fac46034e6ecb9c58a8f6a7970e4063633f1",
       "headRepository": "YuChaode/network-inventory-yang",
       "headRefName": "main",
       "headRefOid": "2632a203b2c759d9f05ab3487d36f201d0867815",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-02-22T13:06:23Z",
+      "mergedAt": "2024-02-22T13:06:23Z",
+      "mergedBy": "italobusi",
+      "mergeCommit": {
+        "oid": "a93514cde15bfacbc24d8268cb4c87b4099549fc"
+      },
       "comments": [],
       "reviews": [
         {
