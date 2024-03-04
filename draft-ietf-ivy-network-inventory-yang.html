@@ -16,14 +16,14 @@ that is application- and technology-agnostic.  This data model can be
 augmented with application-specific and technology-specific details
 in other, more specific network inventory data models. 
     " name="description">
-<meta content="xml2rfc 3.19.4" name="generator">
+<meta content="xml2rfc 3.20.0" name="generator">
 <meta content="next generation" name="keyword">
 <meta content="unicorn" name="keyword">
 <meta content="sparkling distributed ledger" name="keyword">
 <meta content="draft-ietf-ivy-network-inventory-yang-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.19.4
-    Python 3.11.6
+  xml2rfc 3.20.0
+    Python 3.11.8
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
@@ -1034,11 +1034,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Network Inventory YANG</td>
-<td class="right">February 2024</td>
+<td class="right">March 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Yu, et al.</td>
-<td class="center">Expires 25 August 2024</td>
+<td class="center">Expires 5 September 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1051,12 +1051,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-ivy-network-inventory-yang-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-02-22" class="published">22 February 2024</time>
+<time datetime="2024-03-04" class="published">4 March 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-08-25">25 August 2024</time></dd>
+<dd class="expires"><time datetime="2024-09-05">5 September 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1120,7 +1120,7 @@ in other, more specific network inventory data models.<a href="#section-abstract
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 25 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 5 September 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1709,18 +1709,12 @@ patch information, are outside the scope of this document and defined other docu
 +--rw components
    +--rw component* [component-id]
    |  +--rw component-id            string
-   .......................................
-   +--rw (component-class)?
-      +--:(chassis)
-      |  +--rw chassis-specific-info
-      +--:(container)
-      |  +--rw slot-specific-info
-      +--:(module)
-      |  +--rw board-specific-info
-      +--:(port)
-      |  +--rw port-specific-info
-      +--:(software)
-         +--rw software-specific-info
+   |   .......................................
+   |  +--ro chassis-specific-info
+   |  +--ro slot-specific-info
+   |  +--ro board-specific-info
+   |  +--ro port-specific-info
+   |  +--ro software-specific-info
 </pre><a href="#section-2.4.2-2" class="pilcrow">¶</a>
 </div>
 </section>
@@ -1819,21 +1813,16 @@ module: ietf-network-inventory
                   +--ro serial-num?               string
                   +--ro mfg-name?                 string
                   +--ro part-number?              string
+                  +--ro product-name?             string
                   +--ro asset-id?                 string
                   +--ro is-fru?                   boolean
                   +--ro mfg-date?                 yang:date-and-time
                   +--ro uri*                      inet:uri
-                  +--rw (component-class)?
-                     +--:(chassis)
-                     |  +--rw chassis-specific-info
-                     +--:(container)
-                     |  +--rw slot-specific-info
-                     +--:(module)
-                     |  +--rw board-specific-info
-                     +--:(port)
-                     |  +--rw port-specific-info
-                     +--:(software)
-                        +--rw software-specific-info
+                  +--ro chassis-specific-info
+                  +--ro slot-specific-info
+                  +--ro board-specific-info
+                  +--ro port-specific-info
+                  +--ro software-specific-info
 </pre>
 </div>
 <figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
@@ -1850,7 +1839,7 @@ module: ietf-network-inventory
 <span id="name-network-inventory-yang-modu"></span><div id="fig-ni-yang">
 <figure id="figure-3">
         <div class="breakable lang-yang sourcecode" id="section-5-1.1">
-<pre>&lt;CODE BEGINS&gt; file "ietf-network-inventory@2023-03-07.yang"
+<pre>&lt;CODE BEGINS&gt; file "ietf-network-inventory@2024-03-04.yang"
 
 module ietf-network-inventory {
   yang-version 1.1;
@@ -1927,7 +1916,7 @@ module ietf-network-inventory {
   // RFC Ed.: update the date below with the date of RFC publication
   // and remove this note.
 
-  revision 2024-02-07 {
+  revision 2024-03-04 {
     description
       "Initial version";
     reference
@@ -2016,13 +2005,18 @@ module ietf-network-inventory {
       config false;
       type string;
       description
-        "The vendor-specific serial number string for the NE";
+        "The vendor-specific serial number of NE. It is expected that
+        vendors assign unique serial numbers to different NEs within
+        the scope of the part number.";
     }
     leaf product-name {
       config false;
       type string;
       description
-        "indicates the vendor-spefic device type infomation.";
+        "The vendor-specific serial number of the network element
+        instance. It is expected that vendors assign unique serial
+        numbers to different network element instances within the
+        scope of the product name.";
     }
   }
 
@@ -2030,52 +2024,50 @@ module ietf-network-inventory {
     description
       "Provide component-specific attributes for different
       components.";
-    choice component-class {
-      description
-        "This component-specific extension differs by different
-        component classes.";
-      case chassis {
-        container chassis-specific-info {
-          description
-            "This container contains some attributes belong to
-            chassis only.";
-          uses chassis-specific-info-grouping;
-        }
-      }
-      case container {
-        container slot-specific-info {
-          description
-            "This container contains some attributes belong to
-            slot or sub-slot only.";
-          uses slot-specific-info-grouping;
-        }
-      }
-      case module {
-        container board-specific-info {
-          description
-            "This container contains some attributes belong to
-            board only.";
-          uses board-specific-info-grouping;
-        }
-      }
-      case port {
-        container port-specific-info {
-          description
-            "This container contains some attributes belong to
-            port only.";
-          uses port-specific-info-grouping;
-        }
-      }
-      case software {
-        container software-specific-info {
-          description
-            "This container contains some attributes belong to
-            software only.";
 
-          uses software-specific-info-grouping;
-        }
-      }
-    //TO BE ADDED: transceiver
+    container chassis-specific-info {
+      when "../class = 'ianahw:chassis'";
+      description
+        "This container contains some attributes belong to
+        chassis only.";
+      uses chassis-specific-info-grouping;
+      config false;
+    }
+
+    container slot-specific-info {
+      when "../class = 'ianahw:container'";
+      description
+        "This container contains some attributes belong to
+        slot only.";
+      uses slot-specific-info-grouping;
+      config false;
+    }
+
+    container board-specific-info {
+      when "../class = 'ianahw:module'";
+      description
+        "This container contains some attributes belong to
+        board only.";
+      uses board-specific-info-grouping;
+      config false;
+    }
+
+    container port-specific-info {
+      when "../class = 'ianahw:port'";
+      description
+        "This container contains some attributes belong to
+        port only.";
+      uses port-specific-info-grouping;
+      config false;
+    }
+
+    container software-specific-info {
+      when "../class = 'ianahw:software'";
+      description
+        "This container contains some attributes belong to
+        software only.";
+      uses software-specific-info-grouping;
+      config false;
     }
   }
 
@@ -2228,13 +2220,10 @@ module ietf-network-inventory {
               config false;
               type string;
               description
-                "The vendor-specific serial number string for the
-                component.  The preferred value is the serial number
-                string actually printed on the component itself (if
-                present).";
-              reference
-                "RFC 6933: Entity MIB (Version 4) -
-                entPhysicalSerialNum";
+                "The vendor-specific serial number of the component
+                instance. It is expected that vendors assign unique
+                serial numbers to different component instances within
+                the scope of the part number.";
             }
             leaf mfg-name {
               config false;
@@ -2261,17 +2250,19 @@ module ietf-network-inventory {
               config false;
               type string;
               description
-                "A code used to uniquely identify a type of component when
-                  referencing it, it could be visible and
-                  vendor-sepecific, usually it may be printed on the
-                  component itself.
-
-                If the part number string associated with the physical
-                component is unknown to the server, then this node is
-                not instantiated.";
-              reference
-                "RFC 6933: Entity MIB (Version 4) -
-                entPhysicalModelName";
+                "The vendor-specific part number of the component
+                type. It is expected that vendors assign unique part
+                numbers to different component types within the scope
+                of the vendor.";
+            }
+            leaf product-name {
+              config false;
+              type string;
+              description
+                "The vendor-specific and human-interpretable string
+                describing the component type. It is expected that
+                vendors assign unique product names to different
+                component types within the scope of the vendor.";
             }
             leaf asset-id {
               config false;
@@ -2433,7 +2424,7 @@ module ietf-network-inventory {
 <dl class="references">
 <dt id="I-D.ietf-teas-actn-poi-applicability">[I-D.ietf-teas-actn-poi-applicability]</dt>
         <dd>
-<span class="refAuthor">Peruzzini, F.</span>, <span class="refAuthor">Bouquier, J.</span>, <span class="refAuthor">Busi, I.</span>, <span class="refAuthor">King, D.</span>, and <span class="refAuthor">D. Ceccarelli</span>, <span class="refTitle">"Applicability of Abstraction and Control of Traffic Engineered Networks (ACTN) to Packet Optical Integration (POI)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-teas-actn-poi-applicability-10</span>, <time datetime="2024-01-19" class="refDate">19 January 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-teas-actn-poi-applicability-10">https://datatracker.ietf.org/doc/html/draft-ietf-teas-actn-poi-applicability-10</a>&gt;</span>. </dd>
+<span class="refAuthor">Peruzzini, F.</span>, <span class="refAuthor">Bouquier, J.</span>, <span class="refAuthor">Busi, I.</span>, <span class="refAuthor">King, D.</span>, and <span class="refAuthor">D. Ceccarelli</span>, <span class="refTitle">"Applicability of Abstraction and Control of Traffic Engineered Networks (ACTN) to Packet Optical Integration (POI)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-teas-actn-poi-applicability-11</span>, <time datetime="2024-02-22" class="refDate">22 February 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-teas-actn-poi-applicability-11">https://datatracker.ietf.org/doc/html/draft-ietf-teas-actn-poi-applicability-11</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.wzwb-ivy-network-inventory-software">[I-D.wzwb-ivy-network-inventory-software]</dt>
         <dd>
