@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-03-03T00:40:04.512181+00:00",
+  "timestamp": "2024-03-05T00:37:29.261201+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1715,6 +1715,34 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 39,
+      "id": "PR_kwDOKiDYo85ojXMp",
+      "title": "Update based on 21st Feb's discussion",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/pull/39",
+      "state": "MERGED",
+      "author": "YuChaode",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "1. change the description of part-number, serial-num of component, add product-name attribute to component;\r\n2. change the description of serial-number and product-name of NE;\r\n3. change the component-specific-info structure",
+      "createdAt": "2024-03-04T07:44:03Z",
+      "updatedAt": "2024-03-04T08:38:27Z",
+      "baseRepository": "ietf-ivy-wg/network-inventory-yang",
+      "baseRefName": "main",
+      "baseRefOid": "a93514cde15bfacbc24d8268cb4c87b4099549fc",
+      "headRepository": "YuChaode/network-inventory-yang",
+      "headRefName": "main",
+      "headRefOid": "5310e621f97e860b557aa7846834c54523d804bf",
+      "closedAt": "2024-03-04T08:38:26Z",
+      "mergedAt": "2024-03-04T08:38:26Z",
+      "mergedBy": "italobusi",
+      "mergeCommit": {
+        "oid": "d0d2c266531a1a5aab0b9bcef80df4058c661873"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
