@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-03-05T00:37:29.261201+00:00",
+  "timestamp": "2024-03-07T00:30:47.659842+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -187,7 +187,7 @@
       ],
       "body": "Add an example of YANG code for the grouping (Component-Specific Info Design section)",
       "createdAt": "2023-10-23T08:34:32Z",
-      "updatedAt": "2024-02-21T16:57:53Z",
+      "updatedAt": "2024-03-06T23:46:44Z",
       "closedAt": null,
       "comments": [
         {
@@ -221,9 +221,9 @@
         {
           "author": "italobusi",
           "authorAssociation": "COLLABORATOR",
-          "body": "**[2024-02-21 Base Network Inventory weekly call](https://demo.hedgedoc.org/cQyswfIUT4WbnkvvbvjQ1Q)**\r\n\r\nOption 2 agreed to solve the filtering issue\r\n\r\n- [ ] @YuChaode : update the draft and model accordingly",
+          "body": "**[2024-02-21 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-02-21.md)**\r\n\r\nOption 2 agreed to solve the filtering issue\r\n\r\n- [ ] @YuChaode : update the draft and model accordingly",
           "createdAt": "2024-02-21T16:00:51Z",
-          "updatedAt": "2024-02-21T16:01:28Z"
+          "updatedAt": "2024-03-06T23:46:44Z"
         },
         {
           "author": "nigel-r-davis",
@@ -249,11 +249,16 @@
       "state": "OPEN",
       "author": "italobusi",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
-      "labels": [],
+      "assignees": [
+        "YuChaode"
+      ],
+      "labels": [
+        "enhancement",
+        "agreed"
+      ],
       "body": "Whether the software patch is in the base inventory model is to be discussed.",
       "createdAt": "2023-10-23T08:34:57Z",
-      "updatedAt": "2024-02-21T01:13:11Z",
+      "updatedAt": "2024-03-07T00:15:36Z",
       "closedAt": null,
       "comments": [
         {
@@ -262,6 +267,13 @@
           "body": "[Modeling of Patch Software.pptx](https://github.com/ietf-ivy-wg/network-inventory-yang/files/14352759/Modeling.of.Patch.Software.pptx)\r\na slide to  be discussed on 21st Feb meeting.",
           "createdAt": "2024-02-21T01:13:11Z",
           "updatedAt": "2024-02-21T01:13:11Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-03-06 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-03-06.md)**\r\n\r\nProposal from Chaode discussed: https://github.com/ietf-ivy-wg/network-inventory-yang/files/14352759/Modeling.of.Patch.Software.pptx\r\n\r\nAgreement reached to add a software-patch-rev attribute for the components\r\n\r\nNote: the attribute name has been chosen to clarify that the patch is a SW patch and to align with the naming convention used for HW, FW and SW versions\r\n\r\nAgreement to define the software-patch-rev attribute as a list\r\n\r\nIt has been discussed whether there is always a single SW instance per component or there could be multiple SW instances running on the same component\r\n\r\nIt was pointed out that the SW inventory extension model allows modelling the cases where multiple SW instances are running on the same HW component\r\n\r\nThe base model can support HW components that support a single SW module. Complex configurations where an HW component can support multiple SW versions can be modelled using the SW inventory extension model: in this case, an HW-only component instance will have only the hardware-rev and it will contain one or more SW-only child component instances, which will have only the software-rev attribute\r\n\r\nAgreement to keep only onw software-rev attribute per component\r\n\r\nAgreement to add the software-patch-rev attribute (as a list) also for network elements\r\n\r\n- [ ] @YuChaode  update the YANG model and the draft as agreed during the call\r\n",
+          "createdAt": "2024-03-07T00:15:24Z",
+          "updatedAt": "2024-03-07T00:15:24Z"
         }
       ]
     },
@@ -514,7 +526,7 @@
       ],
       "body": "Hi, I've seen that we have in the draft the concept of \"part number\". RFC 8348 defines the parameter model-name to obtain this information. \r\n\r\n\"The vendor-specific model name identifier string\r\n              associated with this physical component.  The preferred\r\n              value is the customer-visible part number, which may be\r\n              printed on the component itself.\"\r\n\r\nAs we're changing the model of 8348. Is there any reason to include the \"part number\" instead of reusing model-name?",
       "createdAt": "2022-12-21T17:57:32Z",
-      "updatedAt": "2024-02-21T16:03:05Z",
+      "updatedAt": "2024-03-07T00:13:18Z",
       "closedAt": null,
       "comments": [
         {
@@ -590,9 +602,16 @@
         {
           "author": "italobusi",
           "authorAssociation": "COLLABORATOR",
-          "body": "**[2024-02-21 Base Network Inventory weekly call](https://demo.hedgedoc.org/cQyswfIUT4WbnkvvbvjQ1Q)**\r\n\r\nThe following attributes have been agreed:\r\n\r\n- part-number as \"The vendor-specific part number of the component type. It is expected that vendors assign unique part numbers to different component types within the scope of the vendor.\"\r\n\r\n- product-name as \"The vendor-specific and human-interpretable string describing the component type. It is expected that vendors assign unique product names to different component types within the scope of the vendor.\"\r\n\r\n- serial-number as \"The vendor-specific serial number of the component instance. It is expected that vendors assign unique serial numbers to different component instances within the scope of the part number.\"\r\n\r\n- [ ] @YuChaode : update the draft and the model accordingly",
+          "body": "**[2024-02-21 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-02-21.md)**\r\n\r\nThe following attributes have been agreed:\r\n\r\n- part-number as \"The vendor-specific part number of the component type. It is expected that vendors assign unique part numbers to different component types within the scope of the vendor.\"\r\n\r\n- product-name as \"The vendor-specific and human-interpretable string describing the component type. It is expected that vendors assign unique product names to different component types within the scope of the vendor.\"\r\n\r\n- serial-number as \"The vendor-specific serial number of the component instance. It is expected that vendors assign unique serial numbers to different component instances within the scope of the part number.\"\r\n\r\n- [ ] @YuChaode : update the draft and the model accordingly",
           "createdAt": "2024-02-21T16:03:05Z",
-          "updatedAt": "2024-02-21T16:03:05Z"
+          "updatedAt": "2024-03-06T23:47:00Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-03-06 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-03-06.md)**\r\n\r\nThe YANG descriptions in the I-D version uploaded for IETF 119 are not fully aligned with the descriptions agreed during the call on February 21, 2024\r\n\r\n- [ ] @YuChaode update the definitions in the YANG model to align with the definitions in [2024-02-21 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-02-21.md)",
+          "createdAt": "2024-03-07T00:13:16Z",
+          "updatedAt": "2024-03-07T00:13:16Z"
         }
       ]
     },
@@ -1105,7 +1124,7 @@
       ],
       "body": "Refine the name and description of the assembly-id attribute for the NE",
       "createdAt": "2024-01-25T12:57:05Z",
-      "updatedAt": "2024-02-21T16:06:22Z",
+      "updatedAt": "2024-03-07T00:13:23Z",
       "closedAt": null,
       "comments": [
         {
@@ -1160,9 +1179,16 @@
         {
           "author": "italobusi",
           "authorAssociation": "COLLABORATOR",
-          "body": "**[2024-02-21 Base Network Inventory weekly call](https://demo.hedgedoc.org/cQyswfIUT4WbnkvvbvjQ1Q)**\r\n\r\nThe following attributes have been agreed:\r\n\r\n- product-name as \"The vendor-specific and human-interpretable string describing the network element type. It is expected that vendors assign unique product names to different component types within the scope of the vendor.\"\r\n\r\n- serial-number as \"The vendor-specific serial number of the network element instance. It is expected that vendors assign unique serial numbers to different component instances within the scope of the product name.\"\r\n\r\n- [ ] @YuChaode : update the draft and the model accordingly\r\n",
+          "body": "**[2024-02-21 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-02-21.md)**\r\n\r\nThe following attributes have been agreed:\r\n\r\n- product-name as \"The vendor-specific and human-interpretable string describing the network element type. It is expected that vendors assign unique product names to different component types within the scope of the vendor.\"\r\n\r\n- serial-number as \"The vendor-specific serial number of the network element instance. It is expected that vendors assign unique serial numbers to different network element instances within the scope of the product name.\"\r\n\r\n- [ ] @YuChaode : update the draft and the model accordingly\r\n",
           "createdAt": "2024-02-21T16:06:13Z",
-          "updatedAt": "2024-02-21T16:06:13Z"
+          "updatedAt": "2024-03-06T23:47:06Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-03-06 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-03-06.md)**\r\n\r\nThe YANG descriptions in the I-D version uploaded for IETF 119 are not fully aligned with the descriptions agreed during the call on February 21, 2024\r\n\r\n- [ ] @YuChaode update the definitions in the YANG model to align with the definitions in [2024-02-21 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-02-21.md)",
+          "createdAt": "2024-03-07T00:13:22Z",
+          "updatedAt": "2024-03-07T00:13:22Z"
         }
       ]
     },
@@ -1212,7 +1238,7 @@
       ],
       "body": "The \"asset-id\" is a user-assigned identifier (as indicated in the current I-D) that applies to both components and NEs.\r\n\r\nHowever, it is currently defined only for the components.\r\n\r\nSee: https://github.com/ietf-ivy-wg/network-inventory-yang/issues/33#issuecomment-1933254876\r\n \r\nSee: https://github.com/ietf-ivy-wg/network-inventory-yang/issues/33#issuecomment-1934226018\r\n",
       "createdAt": "2024-02-08T14:32:10Z",
-      "updatedAt": "2024-02-21T16:07:59Z",
+      "updatedAt": "2024-03-06T23:46:52Z",
       "closedAt": null,
       "comments": [
         {
@@ -1232,9 +1258,9 @@
         {
           "author": "italobusi",
           "authorAssociation": "COLLABORATOR",
-          "body": "**[2024-02-21 Base Network Inventory weekly call](https://demo.hedgedoc.org/cQyswfIUT4WbnkvvbvjQ1Q)**\r\n\r\nThe issue still open for further discussion is whether there is a need for owner-assigned identifiers (such as the asset-id in RFC8348):\r\n\r\n- \"The owner-assigned tracking identifier of the component type.\"\r\n\r\n- \"The owner-assigned tracking identifier of the component instance.\"\r\n\r\n- \"The owner-assigned asset tracking identifier of the network element type.\"\r\n\r\n- \"The owner-assigned asset tracking identifier of the network element instance.\"\r\n\r\nThe naming of these attributes should be discussed after the terminology is stable.\r\n",
+          "body": "**[2024-02-21 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-02-21.md)**\r\n\r\nThe issue still open for further discussion is whether there is a need for owner-assigned identifiers (such as the asset-id in RFC8348):\r\n\r\n- \"The owner-assigned tracking identifier of the component type.\"\r\n\r\n- \"The owner-assigned tracking identifier of the component instance.\"\r\n\r\n- \"The owner-assigned asset tracking identifier of the network element type.\"\r\n\r\n- \"The owner-assigned asset tracking identifier of the network element instance.\"\r\n\r\nThe naming of these attributes should be discussed after the terminology is stable.\r\n",
           "createdAt": "2024-02-21T16:07:16Z",
-          "updatedAt": "2024-02-21T16:07:59Z"
+          "updatedAt": "2024-03-06T23:46:52Z"
         }
       ]
     },
@@ -1271,6 +1297,61 @@
       "updatedAt": "2024-02-21T15:24:23Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 40,
+      "id": "I_kwDOKiDYo86BgAds",
+      "title": "Hardware and Firmare revisions for NE",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/40",
+      "state": "OPEN",
+      "author": "italobusi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "italobusi",
+        "YuChaode"
+      ],
+      "labels": [
+        "bug"
+      ],
+      "body": "It is not clear why for the network elements, the hardware-rev is defined but the firmware-rev is not defined: it should either have both hardware-rev and firmware-rev or none\r\n",
+      "createdAt": "2024-03-07T00:02:05Z",
+      "updatedAt": "2024-03-07T00:16:21Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-03-06 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-03-06.md)**\r\n\r\nIt is not clear why for the network elements, the hardware-rev is defined but the firmware-rev is not defined: it should either have both hardware-rev and firmware-rev or none\r\n\r\n- [ ] @italobusi @YuChaode check with Fabio and minutes of previous CCAMP WG meetings about the previous discussion in CCAMP WG\r\n\r\nWe can later revise the motivations discussed in CCAMP WG and update the model as appropriate",
+          "createdAt": "2024-03-07T00:04:35Z",
+          "updatedAt": "2024-03-07T00:16:21Z"
+        }
+      ]
+    },
+    {
+      "number": 41,
+      "id": "I_kwDOKiDYo86BgBsJ",
+      "title": "SW upgrades",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/41",
+      "state": "OPEN",
+      "author": "italobusi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "enhancement"
+      ],
+      "body": "Is the management of SW upgrades (including patches) in the scope of IVY WG?\r\n\r\nIs it in the scope of inventory model or of ALMO?",
+      "createdAt": "2024-03-07T00:07:10Z",
+      "updatedAt": "2024-03-07T00:17:34Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "**[2024-03-06 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-03-06.md)**\r\n\r\nThere was also a question about the management of SW upgrades (including patches): it is not fully clear whether this is in the scope of inventory model or of ALMO\r\n\r\n- [ ] **Prasenjit** : provide more detailed description for this issue",
+          "createdAt": "2024-03-07T00:08:20Z",
+          "updatedAt": "2024-03-07T00:17:34Z"
+        }
+      ]
     }
   ],
   "pulls": [
