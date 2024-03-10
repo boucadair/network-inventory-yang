@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-03-07T00:30:47.659842+00:00",
+  "timestamp": "2024-03-10T00:40:51.941760+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1335,21 +1335,30 @@
       "state": "OPEN",
       "author": "italobusi",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "prmanna"
+      ],
       "labels": [
         "enhancement"
       ],
       "body": "Is the management of SW upgrades (including patches) in the scope of IVY WG?\r\n\r\nIs it in the scope of inventory model or of ALMO?",
       "createdAt": "2024-03-07T00:07:10Z",
-      "updatedAt": "2024-03-07T00:17:34Z",
+      "updatedAt": "2024-03-08T16:47:40Z",
       "closedAt": null,
       "comments": [
         {
           "author": "italobusi",
           "authorAssociation": "COLLABORATOR",
-          "body": "**[2024-03-06 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-03-06.md)**\r\n\r\nThere was also a question about the management of SW upgrades (including patches): it is not fully clear whether this is in the scope of inventory model or of ALMO\r\n\r\n- [ ] **Prasenjit** : provide more detailed description for this issue",
+          "body": "**[2024-03-06 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-03-06.md)**\r\n\r\nThere was also a question about the management of SW upgrades (including patches): it is not fully clear whether this is in the scope of inventory model or of ALMO\r\n\r\n- [ ] @prmanna provide more detailed description for this issue",
           "createdAt": "2024-03-07T00:08:20Z",
-          "updatedAt": "2024-03-07T00:17:34Z"
+          "updatedAt": "2024-03-07T16:36:39Z"
+        },
+        {
+          "author": "prmanna",
+          "authorAssociation": "NONE",
+          "body": "This is agreed that Inventory base model must contain the versions for its SW/FW.  The question arises how to manage its versions, its upgradation.  As of now, the management of SW upgrade and/or its procedures - it's not part of both Inventory and ALMO.  Again, Inventory model should be overloaded with SW management. At the same time, ALMO is a license/entitlement management architecture for all - SW/HW/NE/Solution/etc. It's different than SW upgrades/version management. \r\nIMO, We need to have a deep dive on overall SW/FW version management architecture, along with its recommendations. ",
+          "createdAt": "2024-03-08T16:47:39Z",
+          "updatedAt": "2024-03-08T16:47:39Z"
         }
       ]
     }
