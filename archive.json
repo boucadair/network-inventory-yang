@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-03-17T00:40:47.692578+00:00",
+  "timestamp": "2024-03-19T00:37:52.292630+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -1124,7 +1124,7 @@
       ],
       "body": "Refine the name and description of the assembly-id attribute for the NE",
       "createdAt": "2024-01-25T12:57:05Z",
-      "updatedAt": "2024-03-07T00:13:23Z",
+      "updatedAt": "2024-03-18T08:16:36Z",
       "closedAt": null,
       "comments": [
         {
@@ -1179,9 +1179,9 @@
         {
           "author": "italobusi",
           "authorAssociation": "COLLABORATOR",
-          "body": "**[2024-02-21 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-02-21.md)**\r\n\r\nThe following attributes have been agreed:\r\n\r\n- product-name as \"The vendor-specific and human-interpretable string describing the network element type. It is expected that vendors assign unique product names to different component types within the scope of the vendor.\"\r\n\r\n- serial-number as \"The vendor-specific serial number of the network element instance. It is expected that vendors assign unique serial numbers to different network element instances within the scope of the product name.\"\r\n\r\n- [ ] @YuChaode : update the draft and the model accordingly\r\n",
+          "body": "**[2024-02-21 Base Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-02-21.md)**\r\n\r\nThe following attributes have been agreed:\r\n\r\n- product-name as \"The vendor-specific and human-interpretable string describing the network element type. It is expected that vendors assign unique product names to different network element types within the scope of the vendor.\"\r\n\r\n- serial-number as \"The vendor-specific serial number of the network element instance. It is expected that vendors assign unique serial numbers to different network element instances within the scope of the product name.\"\r\n\r\n- [ ] @YuChaode : update the draft and the model accordingly\r\n",
           "createdAt": "2024-02-21T16:06:13Z",
-          "updatedAt": "2024-03-06T23:47:06Z"
+          "updatedAt": "2024-03-18T08:16:36Z"
         },
         {
           "author": "italobusi",
