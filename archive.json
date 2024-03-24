@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-03-21T00:39:16.264131+00:00",
+  "timestamp": "2024-03-24T00:42:41.045448+00:00",
   "repo": "ietf-ivy-wg/network-inventory-yang",
   "labels": [
     {
@@ -139,7 +139,7 @@
       "id": "I_kwDOKiDYo850n-3G",
       "title": "Efficiency Issue",
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/4",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "italobusi",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -151,8 +151,8 @@
       ],
       "body": "Is still needed this section?",
       "createdAt": "2023-10-23T08:34:02Z",
-      "updatedAt": "2024-01-17T21:16:45Z",
-      "closedAt": null,
+      "updatedAt": "2024-03-22T07:17:14Z",
+      "closedAt": "2024-03-22T07:17:14Z",
       "comments": [
         {
           "author": "italobusi",
@@ -167,6 +167,13 @@
           "body": "**[2024-01-17 Network Inventory weekly call](https://github.com/ietf-ivy-wg/network-inventory-yang/blob/main/minutes/minutes-2024-01-17.md)**\r\n\r\nAgreed to move the text in section 2.5 to an Appendix\r\n\r\n- [ ] @YuChaode update the document accordingly\r\n",
           "createdAt": "2024-01-17T21:04:22Z",
           "updatedAt": "2024-01-17T21:04:22Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closed with PR #39",
+          "createdAt": "2024-03-22T07:17:14Z",
+          "updatedAt": "2024-03-22T07:17:14Z"
         }
       ]
     },
@@ -175,7 +182,7 @@
       "id": "I_kwDOKiDYo850n_Dx",
       "title": "Guidelines for component specific attributes",
       "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "italobusi",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -187,8 +194,8 @@
       ],
       "body": "Add an example of YANG code for the grouping (Component-Specific Info Design section)",
       "createdAt": "2023-10-23T08:34:32Z",
-      "updatedAt": "2024-03-06T23:46:44Z",
-      "closedAt": null,
+      "updatedAt": "2024-03-22T07:16:52Z",
+      "closedAt": "2024-03-22T07:16:52Z",
       "comments": [
         {
           "author": "italobusi",
@@ -238,6 +245,13 @@
           "body": "The board is defined as module in IANA:\r\n\r\n```\r\n  identity module {\r\n    base ianahw:hardware-class;\r\n    description\r\n      \"This identity is applicable if the hardware class is some sort\r\n       of self-contained sub-system.  If a module component is\r\n       removable, then it should be modeled within a container\r\n       component; otherwise, it should be modeled directly within\r\n       another physical component (e.g., a chassis or another\r\n       module).\";\r\n  }\r\n```\r\n\r\nI would suggest to re-use the same terminology as in IANA for the component-specific containers to avoid ambiguity",
           "createdAt": "2024-02-21T16:57:52Z",
           "updatedAt": "2024-02-21T16:57:52Z"
+        },
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closed with PR #39 ",
+          "createdAt": "2024-03-22T07:16:27Z",
+          "updatedAt": "2024-03-22T07:16:27Z"
         }
       ]
     },
@@ -521,12 +535,12 @@
         "YuChaode"
       ],
       "labels": [
-        "needs discussion",
+        "agreed",
         "change-request"
       ],
       "body": "Hi, I've seen that we have in the draft the concept of \"part number\". RFC 8348 defines the parameter model-name to obtain this information. \r\n\r\n\"The vendor-specific model name identifier string\r\n              associated with this physical component.  The preferred\r\n              value is the customer-visible part number, which may be\r\n              printed on the component itself.\"\r\n\r\nAs we're changing the model of 8348. Is there any reason to include the \"part number\" instead of reusing model-name?",
       "createdAt": "2022-12-21T17:57:32Z",
-      "updatedAt": "2024-03-07T00:13:18Z",
+      "updatedAt": "2024-03-22T06:18:14Z",
       "closedAt": null,
       "comments": [
         {
@@ -1117,14 +1131,16 @@
       "state": "OPEN",
       "author": "italobusi",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "YuChaode"
+      ],
       "labels": [
         "agreed",
         "change-request"
       ],
       "body": "Refine the name and description of the assembly-id attribute for the NE",
       "createdAt": "2024-01-25T12:57:05Z",
-      "updatedAt": "2024-03-18T08:16:36Z",
+      "updatedAt": "2024-03-22T06:15:45Z",
       "closedAt": null,
       "comments": [
         {
@@ -1361,6 +1377,28 @@
           "updatedAt": "2024-03-08T16:47:39Z"
         }
       ]
+    },
+    {
+      "number": 42,
+      "id": "I_kwDOKiDYo86DOqpI",
+      "title": "Missing component location attribute",
+      "url": "https://github.com/ietf-ivy-wg/network-inventory-yang/issues/42",
+      "state": "OPEN",
+      "author": "italobusi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "YuChaode",
+        "lana-wu"
+      ],
+      "labels": [
+        "enhancement",
+        "needs discussion"
+      ],
+      "body": "The location attribute defined in [draft-ietf-ccamp-network-inventory-yang-02](https://datatracker.ietf.org/doc/html/draft-ietf-ccamp-network-inventory-yang-02) is missing from the base model:\r\n\r\n```\r\n        leaf location {\r\n          type string;\r\n          description\r\n            \"A relative location information of this component.\r\n            In optical transport network, the location string is\r\n            using the following pattern:\r\n              '/ne=<nw-ne-name>[/r=<r_index>][/sh=<sh_index>\r\n              [/s_sh=<s_sh_index> ...]][[/sl=<sl_index>\r\n              [/s_sl=<s_sl_index> ...]][/p=<p_index> \u2026]]'\r\n            \";\r\n        }\r\n\r\n```\r\n\r\nAs indicated in Appendix A.1 of [draft-ietf-ccamp-network-inventory-yang-02](https://datatracker.ietf.org/doc/html/draft-ietf-ccamp-network-inventory-yang-02), a similar attribute exists also in OpenConfig:\r\n\r\nhttps://github.com/openconfig/public/blob/master/release/models/platform/openconfig-platform.yang\r\n\r\nIt is proposed to add this attribute also to the base network inventory model with a more generic description:\r\n\r\n```\r\n    leaf location {\r\n      type string;\r\n      description\r\n        \"A system-defined description of the location of the\r\n        component within the system.\";\r\n    }\r\n\r\n```\r\n",
+      "createdAt": "2024-03-22T04:10:51Z",
+      "updatedAt": "2024-03-22T04:12:07Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
