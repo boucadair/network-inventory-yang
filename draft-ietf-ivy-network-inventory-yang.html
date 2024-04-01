@@ -16,13 +16,13 @@ that is application- and technology-agnostic.  This data model can be
 augmented with application-specific and technology-specific details
 in other, more specific network inventory data models. 
     " name="description">
-<meta content="xml2rfc 3.20.0" name="generator">
+<meta content="xml2rfc 3.20.1" name="generator">
 <meta content="next generation" name="keyword">
 <meta content="unicorn" name="keyword">
 <meta content="sparkling distributed ledger" name="keyword">
 <meta content="draft-ietf-ivy-network-inventory-yang-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.20.0
+  xml2rfc 3.20.1
     Python 3.11.8
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
@@ -1034,11 +1034,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Network Inventory YANG</td>
-<td class="right">March 2024</td>
+<td class="right">April 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Yu, et al.</td>
-<td class="center">Expires 8 September 2024</td>
+<td class="center">Expires 3 October 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1051,12 +1051,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-ivy-network-inventory-yang-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-03-07" class="published">7 March 2024</time>
+<time datetime="2024-04-01" class="published">1 April 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-09-08">8 September 2024</time></dd>
+<dd class="expires"><time datetime="2024-10-03">3 October 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1120,7 +1120,7 @@ in other, more specific network inventory data models.<a href="#section-abstract
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 8 September 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 3 October 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1916,7 +1916,7 @@ module ietf-network-inventory {
   // RFC Ed.: update the date below with the date of RFC publication
   // and remove this note.
 
-  revision 2024-03-04 {
+  revision 2024-04-01 {
     description
       "Initial version";
     reference
@@ -2005,18 +2005,19 @@ module ietf-network-inventory {
       config false;
       type string;
       description
-        "The vendor-specific serial number of NE. It is expected that
-        vendors assign unique serial numbers to different NEs within
-        the scope of the part number.";
+        "The vendor-specific serial number of the network element
+        instance. It is expected that vendors assign unique serial
+        numbers to different network element instances within the
+        scope of the product name.";
     }
     leaf product-name {
       config false;
       type string;
       description
-        "The vendor-specific serial number of the network element
-        instance. It is expected that vendors assign unique serial
-        numbers to different network element instances within the
-        scope of the product name.";
+        "The vendor-specific and human-interpretable string describing
+        the network element type. It is expected that vendors assign
+        unique product names to different NE types within the scope of
+        the vendor.";
     }
   }
 

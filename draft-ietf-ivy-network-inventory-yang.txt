@@ -5,14 +5,14 @@
 Network Working Group                                              C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                              S. Belotti
-Expires: 8 September 2024                                          Nokia
+Expires: 3 October 2024                                            Nokia
                                                           J.-F. Bouquier
                                                                 Vodafone
                                                             F. Peruzzini
                                                                      TIM
                                                                P. Bedard
                                                                    Cisco
-                                                            7 March 2024
+                                                            1 April 2024
 
 
                 A YANG Data Model for Network Inventory
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 September 2024.
+   This Internet-Draft will expire on 3 October 2024.
 
 Copyright Notice
 
@@ -724,7 +724,7 @@ Table of Contents
      // RFC Ed.: update the date below with the date of RFC publication
      // and remove this note.
 
-     revision 2024-03-04 {
+     revision 2024-04-01 {
        description
          "Initial version";
        reference
@@ -813,18 +813,19 @@ Table of Contents
          config false;
          type string;
          description
-           "The vendor-specific serial number of NE. It is expected that
-           vendors assign unique serial numbers to different NEs within
-           the scope of the part number.";
+           "The vendor-specific serial number of the network element
+           instance. It is expected that vendors assign unique serial
+           numbers to different network element instances within the
+           scope of the product name.";
        }
        leaf product-name {
          config false;
          type string;
          description
-           "The vendor-specific serial number of the network element
-           instance. It is expected that vendors assign unique serial
-           numbers to different network element instances within the
-           scope of the product name.";
+           "The vendor-specific and human-interpretable string describing
+           the network element type. It is expected that vendors assign
+           unique product names to different NE types within the scope of
+           the vendor.";
        }
      }
 
