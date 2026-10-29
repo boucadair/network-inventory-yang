@@ -650,9 +650,9 @@ Table of Contents
 
    According to the description in [RFC8348], the attribute named
    "model-name" under the component, is preferred to have a customer-
-   visible part number value. "model-name" is not straightforward to
-   understand, and therefore, in the base inventory data model the
-   attribute is called "part-number".
+   visible part number value.  The "model-name" data node identifier is
+   not straightforward to understand, and therefore, in the base
+   inventory data model the attribute is called "part-number".
 
 3.4.2.  Component identifiers
 
