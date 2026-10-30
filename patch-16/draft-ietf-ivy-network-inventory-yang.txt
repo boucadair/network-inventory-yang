@@ -5,14 +5,14 @@
 IVY Working Group                                                  C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                              S. Belotti
-Expires: 2 May 2027                                                Nokia
+Expires: 3 May 2027                                                Nokia
                                                           J.-F. Bouquier
                                                                 Vodafone
                                                             F. Peruzzini
                                                                 FiberCop
                                                                P. Bedard
                                                                    Cisco
-                                                         29 October 2026
+                                                         30 October 2026
 
 
               A Base YANG Data Model for Network Inventory
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 May 2027.
+   This Internet-Draft will expire on 3 May 2027.
 
 Copyright Notice
 
@@ -385,8 +385,8 @@ Table of Contents
    component inventory objects that can be managed as hardware
    components from an inventory perspective.
 
-   The top-level "components" container exposes a list of components
-   within each network element and other parameters.
+   The top-level "components" container exposes a list of components,
+   within each network element, and other parameters.
 
    Different component types can be distinguished by the class of
    component.  The component "class" is defined as a union between the
@@ -1458,9 +1458,9 @@ Table of Contents
               Ceccarelli, "Applicability of Abstraction and Control of
               Traffic Engineered Networks (ACTN) to Packet Optical
               Integration (POI)", Work in Progress, Internet-Draft,
-              draft-ietf-teas-actn-poi-applicability-20, 31 August 2026,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-teas-
-              actn-poi-applicability-20>.
+              draft-ietf-teas-actn-poi-applicability-21, 30 October
+              2026, <https://datatracker.ietf.org/doc/html/draft-ietf-
+              teas-actn-poi-applicability-21>.
 
    [I-D.ygb-ivy-passive-network-inventory]
               Guo, A., van caenegem, T., Davis, N., Tilocca, M., and B.
